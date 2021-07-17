@@ -1,0 +1,116 @@
+.Tips1 {
+    float: left;
+
+}
+
+.tip {
+    z-index: 13000;
+}
+
+.tip-title {
+        font-weight: normal;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 14px;
+        margin: 0;
+        color: #FFF;
+        padding: 6px;
+        border: 4px solid #B0B0B0;
+        background: #07071A;
+        text-align: left;
+        border-width: medium;
+        border-color: gold;
+        width:300px;
+        -moz-border-radius: 10px;
+}
+
+.tip-text {
+        font-size: 1px;
+        width:256px;
+}
+
+
+div.items1
+{
+        position:absolute;
+        left:155px;
+        top:195px;
+}
+div.items2
+{
+position:absolute;
+left:600px;
+top:195px;
+}
+div.items3
+{
+        position:absolute;
+        left:155px;
+        top:515px;
+}
+div.items4
+{
+        position:absolute;
+        left:600px;
+        top:515px;
+}
+div.items5
+{
+        position:absolute;
+        left:155px;
+        top:835px;
+        padding: 0px;
+}
+div.items6
+{
+        position:absolute;
+        left:600px;
+        top:835px;
+}
+div.items7
+{
+        position:absolute;
+        left:155px;
+        top:1155px;
+}
+div.items8
+{
+        position:absolute;
+        left:600px;
+        top:1155px;
+}
+div.items9
+{
+        position:absolute;
+        left:155px;
+        top:1475px;
+}
+div.items10
+{
+        position:absolute;
+        left:600px;
+        top:1475px;
+}
+div.items11
+{
+        position:absolute;
+        left:155px;
+        top:1795px;
+}
+div.items12
+{
+        position:absolute;
+        left:600px;
+        top:1795px;
+}
+div.items13
+{
+        position:absolute;
+        left:155px;
+        top:2115px;
+}
+div.items14
+{
+        position:absolute;
+        left:600px;
+        top:2115px;
+}

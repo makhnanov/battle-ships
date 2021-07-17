@@ -1,0 +1,296 @@
+<!--
+@media print {
+    BODY {
+        font-family: arial, helvetica, sans-serif;
+        margin-left: 1.0cm;
+        margin-right: 1.5cm;
+        margin-top: 0;
+        width: 18.5cm;
+        text-align: left;
+        color: #ffffff;
+        font-size: small;
+    }
+
+    li {
+        margin-left: 0px;
+    }
+
+}
+
+
+@media all, screen, handheld {
+    BODY {
+        font-family: verdana, arial, geneva, helvetica, sans-serif;
+        margin-right: 2px;
+        margin-top: 0;
+        color: #ffffff;
+        font-size: small;
+        font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    }
+}
+
+H1 {
+    font-size: 175%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+H2 {
+    font-size: 150%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+H3 {
+    font-size: 125%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+H4 {
+    font-size: 100%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+H5 {
+    font-size: 75%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+H6 {
+    font-size: 50%;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+PRE, TT, CODE {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+A:link {
+    text-decoration: none;
+    color: #CC7A00;
+}
+
+A:visited {
+    text-decoration: none;
+    color: #9C5A00;
+}
+
+A:active {
+    text-decoration: none;
+    color: #FFB400;
+}
+
+A:hover {
+    text-decoration: none;
+}
+
+TH {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+.firstcol {
+    border: 2px black;
+    margin: .5em;
+    padding: .5em;
+    max-width: 458px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+.secondcol {
+    border: 2px black;
+    margin: .5em;
+    padding: .5em;
+    max-width: 600px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+TD {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+table {;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+p {
+    margin-left: 0px;
+    font-weight: lighter;
+}
+
+blockquote, img {
+    margin-left: 0px;
+}
+
+hr {
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 25px;
+}
+
+body {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+}
+
+*.text {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: small;
+    color: #FFC884;
+    font-weight: lighter;
+}
+
+.textfett {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: small;
+    color: #FFC884;
+    font-weight: bold;
+}
+
+.text2 {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: x-large;
+    color: #FFC884;
+    font-weight: bold;
+}
+
+.text3 {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: large;
+    color: #FFC884;
+    font-weight: 600;
+}
+
+.text4 {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: x-small;
+    color: #FFC884;
+    font-weight: lighter;
+}
+
+.text5 {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: xx-small;
+    color: #FFC884;
+    font-weight: bold;
+}
+
+.text6 {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: xx-large;
+    color: #FFC884;
+    font-weight: bold;
+}
+
+.navbar {
+    font-family: tahoma, arial, sans-serif;
+    font-size: medium;
+    color: #FFC884;
+    text-decoration: none;
+}
+
+.text_weiss {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: small;
+    font-weight: lighter;
+    color: #ffffff
+}
+
+.text_rot {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: small;
+    font-weight: lighter;
+    color: #ff0000
+}
+
+.text_grün {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: lighter;
+    color: #22aa22
+}
+
+
+.text_unterstrichen {
+    font-size: small;
+    color: #FFC884;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+
+.link_farbe {
+    font-family: tahoma, arial, sans-serif;
+    font-size: 16px;
+    color: #1fb790;
+    font-weight: lighter;
+}
+
+.navbar2 {
+    font-family: tahoma, arial, sans-serif;
+    font-size: 22px;
+    color: #FFC884;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.headline {
+    font-family: tahoma, arial, sans-serif;
+    font-size: large;
+    color: #FFC884;
+    font-weight: bold;
+}
+
+.bildunterschrift {
+    font-family: tahoma, arial, sans-serif;
+    font-size: 10px;
+    color: #FFC884;
+    font-weight: lighter;
+}
+
+.text_gruen_fett {
+    font-family: Verdana, arial, geneva, helvetica, sans-serif;
+    font-size: x-large;
+    color: #007175;
+    font-weight: bold;
+}
+.founded {
+    animation: bordered 1s forwards cubic-bezier(.17,.67,.83,.67);
+}
+
+@keyframes bordered {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.85);
+    }
+}
+@keyframes background {
+    50% {
+        background: skyblue;
+        box-shadow: 0 -200px 100px -100px yellowgreen inset;
+    }
+}
+.Tips1 {
+    position: absolute;
+}
+.item {
+    width: 60px;
+    height: 60px;
+    background: gold;
+    animation: background 3s infinite;
+}
+.items-row {
+    display: flex;
+    flex-direction: row;
+}
