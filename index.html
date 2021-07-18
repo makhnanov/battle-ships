@@ -35,41 +35,62 @@
                     </div>
                 </div>
                 <div style="width: 300px">
-                    <span v-if="selectedItem" class="ny">Selected item: </span>
-                    {{ selectedItem }}
+                    <input v-model="reforged" type="checkbox"> Reforged icons
                 </div>
             </div>
-            <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly;">
-            <div v-for="shop in shops">
-                <div class="shop-container">
-                        <p class="shop-title">{{ shop.title }}</p>
-                        <div class="shop-images-container">
-                            <div v-for="row in _.chunk(shop.items, 4)"
-                                 style="display: flex; justify-content: space-between;">
-                                <div style="position: relative" v-for="(itemData, itemNumber) in row">
-                                    <div class="for-big-image">
-                                        <div class="img-container">
-                                            <img
-                                                    v-bind:class="[
-                                                !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
-                                                    ? ''
-                                                    // ? '' founded
-                                                    : ''
-                                            ]"
-                                                    v-on:click="select"
-                                                    class="content"
-                                                    :src="'images/' + itemData.img + '.jpg'"
-                                                    alt=""
-                                                    width="60px"
-                                                    height="60px"
-                                                    :alt="itemData.name"
-                                            >
+            <div style="display: flex;">
+                <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly;width: calc(100% - 396px);">
+                    <div v-for="(shop, shopNumber) in shops">
+                        <div class="b-shadowed shop-container">
+                            <p class="shop-title">{{ shop.title }}</p>
+                            <div class="shop-images-container">
+                                <div v-for="row in _.chunk(shop.items, 4)"
+                                     style="display: flex; justify-content: space-between;">
+                                    <div style="position: relative" v-for="(itemData, itemNumber) in row">
+                                        <div class="for-big-image">
+                                            <div class="img-container">
+                                                <img
+                                                        v-if="!reforged"
+                                                        v-bind:class="[
+                                                    !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
+                                                        ? ''
+                                                        // ? '' founded
+                                                        : ''
+                                                ]"
+                                                        v-on:click="select"
+                                                        class="content"
+                                                        :src="'images/' +  (reforged ? 'R' : '') + itemData.img + '.' + (itemData.isJpg || shopNumber ? 'jpg' : 'png')"
+                                                        alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.name"
+                                                >
+                                                <img
+                                                        v-if="reforged"
+                                                        v-bind:class="[
+                                                    !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
+                                                        ? ''
+                                                        // ? '' founded
+                                                        : ''
+                                                ]"
+                                                        v-on:click="select"
+                                                        class="content"
+                                                        :src="'images/R' + itemData.img + '.png'"
+                                                        alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.name"
+                                                >
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="b-shadowed" style="width: 333px;border: 1px solid white; height: 613px;position: sticky;top: 40px;">
+                </div>
             </div>
         </div>
         <script src="index.js"></script>

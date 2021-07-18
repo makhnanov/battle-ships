@@ -4,6 +4,7 @@ var app6 = new Vue({
         return {
             search: '',
             selectedItem: '',
+            reforged: false,
             shops: [
                 {
                     title: 'Weapons Merchant',
@@ -13,6 +14,7 @@ var app6 = new Vue({
                             img: 'HumanArtilleryUpOne',
                             lvl: 1,
                             doubled: '',
+
                         },{
                             name: 'Arrow Cannon',
                             img: 'SteelRanged',
@@ -33,11 +35,13 @@ var app6 = new Vue({
                             img: 'GoblinBlaster',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         },{
                             name: 'Multi-Rocket Cannon',
                             img: 'ClusterRockets',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         },{
                             name: 'Bowmen Crew',
                             img: 'ImprovedBows',
@@ -68,6 +72,7 @@ var app6 = new Vue({
                             img: '12slot',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         }
                     ]
                 },
@@ -1132,9 +1137,12 @@ var app6 = new Vue({
     },
     watch: {
         search: function (value) {
-            var list = document.getElementsByTagName('img');
+            let list = document.getElementsByTagName('img');
             for (let item of list) {
-                item.parentElement.classList.remove('bb');
+                item.parentElement.classList.remove('scaled');
+                item.parentElement.classList.remove('grayed');
+                item.parentElement.classList.remove('thin-f');
+                item.parentElement.classList.remove('thin-l');
             }
             for (let item of list) {
                 let alt = item.getAttribute('alt');
@@ -1144,10 +1152,11 @@ var app6 = new Vue({
                 alt = alt.toLowerCase();
                 value = value.toLowerCase()
                 if (alt.includes(value)) {
-                    item.parentElement.classList.add('bb');
-                    // item.style.width = '50px';
-                    // item.style.height = '50px';
-                    // item.style.border = '5px solid gold';
+                    item.parentElement.classList.add('scaled');
+                    item.parentElement.classList.add('thin-f');
+                    item.parentElement.classList.add('thin-l');
+                } else {
+                    item.parentElement.classList.add('grayed');
                 }
             }
         }
@@ -1156,30 +1165,32 @@ var app6 = new Vue({
         select: function (event) {
             this.selectedItem = event.target.alt;
             let parentClassList = event.target.parentElement.classList;
-            // if (parentClassList.contains('bb')) {
-            //     event.target.parentElement.classList.remove('bb');
-            //     if (parentClassList.contains('scaled')) {
-            //         event.target.parentElement.classList.remove('scaled');
-            //         event.target.parentElement.classList.remove('bb');
-            //     } else {
-            //         event.target.parentElement.classList.add('scaled');
-            //     }
-            // } else {
-            //     event.target.parentElement.classList.add('bb');
-            // }
+            if (parentClassList.contains('bb')) {
+                event.target.parentElement.classList.remove('b');
+                // event.target.parentElement.classList.remove('fat-l');
+
+                // if (parentClassList.contains('scaled')) {
+                //     event.target.parentElement.classList.remove('scaled');
+                //     event.target.parentElement.classList.remove('bb');
+                // } else {
+                //     event.target.parentElement.classList.add('scaled');
+                // }
+            } else {
+                event.target.parentElement.classList.add('bb');
+                // event.target.parentElement.classList.add('fat-l');
+            }
         }
     },
     created: function () {
         let fromCenter = 3;
-        let border = 5;
-        let margin = 8;
+        let border = 2;
+        let margin = 3;
         let startY = 0;
         let startX = startY;
         let finishY = 0;
         let finishX = 0;
-        let width = 60;
+        let width = 72;
         let height = width;
-
         console.log(`
         from, to {
             clip: rect(${startY}px, ${startX + (width / 2) + margin - fromCenter}px, ${startY + border}px, ${startX}px);
@@ -1191,7 +1202,7 @@ var app6 = new Vue({
             clip: rect(${startY + margin + (height / 2) + fromCenter}px, ${startX + border}px, ${startY + (margin * 2) + height}px, ${startX}px);
         }
         37.5% {
-            clip: rect(${startY + margin + height + (margin - border)}px, ${startX + margin + (width / 2) - fromCenter}px, ${startY + (margin * 2) + height}px, ${startX}px);
+            clip: rect(${startY + margin + height + margin - border}px, ${startX + margin + (width / 2) - fromCenter}px, ${startY + (margin * 2) + height}px, ${startX}px);
         }
         50% {
             clip: rect(${startY + margin + height + (margin - border)}px, ${startX + width + (margin * 2)}px, ${startY + (margin * 2) + height}px, ${startX + margin + (width / 2) + fromCenter}px);
