@@ -1,365 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <link href="index.css" rel="stylesheet" type="text/css">
+        <title>Battle Ships Guide</title>
+        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" type="application/javascript"></script>
+        <script src="vue2.js" type="application/javascript"></script>
+        <link href="vue.css" rel="stylesheet" type="text/css">
     </head>
     <body class="text" bgcolor="#000">
-    <div id="app-6">
-        <input v-model="search" placeholder="Search for..." />
-    </div>
-    <table cellspacing="5" cellpadding="10">
-        <tbody>
-            <tr>
-                <td class="text3">
-                    1. Weapons Merchant<br>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHumanArtilleryUpOne.jpg" class="Tips1" width="60" height="60" alt="Rocket Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSteelRanged.jpg" class="Tips1" width="60" height="60" alt="Arrow Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDwarvenLongRifle.jpg" class="Tips1" width="60" height="60" alt="Basic Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFireForTheCannon.jpg" class="Tips1" width="60" height="60" alt="Flame Cannon"></div>
+        <div id="app-6">
+            <div style="display: flex;justify-content: space-between;">
+                <div>
+                    <img src="./images/FirstShip.svg" width="100px" height="100px" alt="">
+                </div>
+                <div style="align-self: center">
+                    <h1 class="battleships-word ny">
+                        Battleships
+                    </h1>
+                </div>
+                <div>
+                    <img src="./images/MegaLogoShip.svg" width="100px" height="100px" alt="">
+                </div>
+            </div>
+            <div style="display: flex;justify-content: space-around;">
+                <div style="width: 300px;padding-left: 35px;">
+                    <span v-if="selectedItem" class="ny">Selected item: </span>
+                    {{ selectedItem }}
+                </div>
+                <div class="search-block">
+                    <div class="ny search-word">
+                        Search:
                     </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGoblinBlaster.jpg" class="Tips1" width="60" height="60" alt="Cruiser Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNClusterRockets.jpg" class="Tips1" width="60" height="60" alt="Multi-Rocket Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNImprovedBows.jpg" class="Tips1" width="60" height="60" alt="Bowmen Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNColdArrows.jpg" class="Tips1" width="60" height="60" alt="Cold-Arrows Cannon"></div>
+                    <div>
+                        <input class="search-input" v-model="search" placeholder="item / ship / ability ..."/>
                     </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFlakCannons.jpg" class="Tips1" width="60" height="60" alt="Machinegun Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFragmentationBombs.jpg" class="Tips1" width="60" height="60" alt="Bombard Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGolemStormBolt.jpg" class="Tips1" width="60" height="60" alt="Boulder Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1" alt=""></div>
+                </div>
+                <div style="width: 300px">
+                    <span v-if="selectedItem" class="ny">Selected item: </span>
+                    {{ selectedItem }}
+                </div>
+            </div>
+            <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly;">
+            <div v-for="shop in shops">
+                <div class="shop-container">
+                        <p class="shop-title">{{ shop.title }}</p>
+                        <div class="shop-images-container">
+                            <div v-for="row in _.chunk(shop.items, 4)"
+                                 style="display: flex; justify-content: space-between;">
+                                <div style="position: relative" v-for="(itemData, itemNumber) in row">
+                                    <div class="for-big-image">
+                                        <div class="img-container">
+                                            <img
+                                                    v-bind:class="[
+                                                !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
+                                                    ? ''
+                                                    // ? '' founded
+                                                    : ''
+                                            ]"
+                                                    v-on:click="select"
+                                                    class="content"
+                                                    :src="'images/' + itemData.img + '.jpg'"
+                                                    alt=""
+                                                    width="60px"
+                                                    height="60px"
+                                                    :alt="itemData.name"
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </td>
-                <td valign="top" class="text3">
-                    2. Weapon Inventory
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNYellowLightning.jpg" class="Tips1" width="60" height="60" alt="Yellow Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGreen_Laser.jpg" class="Tips1" width="60" height="60" alt="Green Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSpell_Nature_Lightning.jpg" class="Tips1" width="60" height="60" alt="Blue Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPyramid.jpg" class="Tips1" width="60" height="60" alt="Red Laser"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNReplenishHealth.jpg" class="Tips1" width="60" height="60" alt="Roentgen Radiator"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPlasmaLaserGun.jpg" class="Tips1" width="60" height="60" alt="Waterthrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFire.jpg" class="Tips1" width="60" height="60" alt="Flamethrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSoulGem.jpg" class="Tips1" width="60" height="60" alt="Pirates Torpedo"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDispelMagic.jpg" class="Tips1" width="60" height="60" alt="Rocket Pack"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNLightning.jpg" class="Tips1" width="60" height="60" alt="Taser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNChestOfGold.jpg" class="Tips1" width="60" height="60" alt="Capitalistic Gun"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    3. Heavy Weapons Merchant
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFireRocks.jpg" class="Tips1" width="60" height="60" alt="Catapult Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSearingArrows.jpg" class="Tips1" width="60" height="60" alt="Fire-Arrow Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNImprovedStrengthOfTheMoon.jpg" class="Tips1" width="60" height="60" alt="Guard Tower Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHammer.jpg" class="Tips1" width="60" height="60" alt="Hammer Cannon"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFanOfKnives.jpg" class="Tips1" width="60" height="60" alt="Knuckle Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNUpgradeMoonGlaive.jpg" class="Tips1" width="60" height="60" alt="Glaive Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBanish.jpg" class="Tips1" width="60" height="60" alt="Chaos Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNLiquidFire.jpg" class="Tips1" width="60" height="60" alt="Cocktail Cannon"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNStormHammer.jpg" class="Tips1" width="60" height="60" alt="Thor's Hammer"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNStasisTrap.jpg" class="Tips1" width="60" height="60" alt="Laser Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWallOfFire.jpg" class="Tips1" width="60" height="60" alt="Frag-Fire Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" class="text3">
-                    4. Magazin
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Flask_03.jpg" class="Tips1" width="60" height="60" alt="Beer Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGuitar.jpg" class="Tips1" width="60" height="60" alt="Guitar Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSpell_Shadow_BloodBoil.jpg" class="Tips1" width="60" height="60" alt="Blood Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBigBadVoodooSpell.jpg" class="Tips1" width="60" height="60" alt="Alpha Cannon"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRum.jpg" class="Tips1" width="60" height="60" alt="Rum Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Wine_01.jpg" class="Tips1" width="60" height="60" alt="Wine Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Axe_19.jpg" class="Tips1" width="60" height="60" alt="Tomahawk Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGatherGold.jpg" class="Tips1" width="60" height="60" alt="Pickaxe Thrower"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRiflemanElite1.jpg" class="Tips1" width="60" height="60" alt="Musket Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNCarronade.jpg" class="Tips1" width="60" height="60" alt="Grapeshot Carronade"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSharkMissile.jpg" class="Tips1" width="60" height="60" alt="Light Rocket"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    5. Arsenal
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNTomeBrown.jpg" class="Tips1" width="60" height="60" alt="Wtite$print a Flyer"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRifleman.jpg" class="Tips1" width="60" height="60" alt="Hire some Sailors"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNAntifa.jpg" class="Tips1" width="60" height="60" alt="Antifa Squatter"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNNewswire.jpg" class="Tips1" width="60" height="60" alt="Newswire"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNScout.jpg" class="Tips1" width="60" height="60" alt="Kamikaze Owl launchpad"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWarEagle.jpg" class="Tips1" width="60" height="60" alt="Kamikaze Eagle launchpad"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMicrowave.jpg" class="Tips1" width="60" height="60" alt="Microwave Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEMP-Bombe.jpg" class="Tips1" width="60" height="60" alt="Elektro Magnetic Pulse Cannon(EMP)"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGnollArrow.jpg" class="Tips1" width="60" height="60" alt="Gnoll Arrow"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMudthrower.jpg" class="Tips1" width="60" height="60" alt="Mud-Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSandstorm.jpg" class="Tips1" width="60" height="60" alt="Sandstorm"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    6. Building of Elements
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTN3M1.jpg" class="Tips1" width="60" height="60" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Weapon_Bow_05.jpg" class="Tips1" width="60" height="60" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNScatterRockets.jpg" class="Tips1" width="60" height="60" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNCryptFiendUnBurrow.jpg" class="Tips1" width="60" height="60" alt=""></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNCryptFiendBurrow.jpg" class="Tips1" width="60" height="60" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" class="text3">
-                    7. Wind of Change
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPeriapt1.jpg" class="Tips1" width="60" height="60" alt="Dialectical Elementarism"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNKarlMarx.jpg" class="Tips1" width="60" height="60" alt="Dialectical Materialism"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMarcos.jpg" class="Tips1" width="60" height="60" alt="Subcomandante Marcos"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEZLN.jpg" class="Tips1" width="60" height="60" alt="EZLN"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWisp.jpg" class="Tips1" width="60" height="60" alt="Sniper"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFlamingBow.jpg" class="Tips1" width="60" height="60" alt="Flaming Bow"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBowAndArrow.jpg" class="Tips1" width="60" height="60" alt="Guardian Bow"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNTripleShot.jpg" class="Tips1" width="60" height="60" alt="Multi-Bow"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNChainsaw.jpg" class="Tips1" width="60" height="60" alt="Chainsaw"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSand.jpg" class="Tips1" width="60" height="60" alt="Sandblaster"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNScytheBackstab.jpg" class="Tips1" width="60" height="60" alt="Dualistic Axe"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    8. Weapon Hut
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNAbility_Hunter_RunningShot.jpg" class="Tips1" width="60" height="60" alt="Flaming-Arrow Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMarkOfFire.jpg" class="Tips1" width="60" height="60" alt="Molotov-Arrow Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNCripple.jpg" class="Tips1" width="60" height="60" alt="Gubbelgun Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNVenomCannon.jpg" class="Tips1" width="60" height="60" alt="Chaos Hammer"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSentrygun.jpg" class="Tips1" width="60" height="60" alt="Minigun"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGatling.jpg" class="Tips1" width="60" height="60" alt="Gattling"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNStar.jpg" class="Tips1" width="60" height="60" alt="Glaiveboulder"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNIceDagger.jpg" class="Tips1" width="60" height="60" alt="Ice Thrower"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPowerAttack.jpg" class="Tips1" width="60" height="60" alt="Frag-Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSkeletalOrc.jpg" class="Tips1" width="60" height="60" alt="Soul Stealer"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGunFire1.jpg" class="Tips1" width="60" height="60" alt="Cannoneer Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    9. Hut of the Craftsman
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNAnarcho.jpg" class="Tips1" width="60" height="60" alt="Anarchistic Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNArthas.jpg" class="Tips1" width="60" height="60" alt="Found the Sailors Union"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTN_CNT_FAI.jpg" class="Tips1" width="60" height="60" alt="Anarco-Syndicalistic Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGhostMage.jpg" class="Tips1" width="60" height="60" alt="Communistic Crew"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRedFlag.jpg" class="Tips1" width="60" height="60" alt="Spirit of the Revolution"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNChe.jpg" class="Tips1" width="60" height="60" alt="Guevars Guerillero Gun"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGlaiveThrower.jpg" class="Tips1" width="60" height="60" alt="Feuerbachs Ballista"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDragonHawk.jpg" class="Tips1" width="60" height="60" alt="Gnollish Wind"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSacrificialSkull.jpg" class="Tips1" width="60" height="60" alt="Gnoll Roentgen"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRodOfNecromancy.jpg" class="Tips1" width="60" height="60" alt="Chaos Gnoll"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNArcaneBlast.jpg" class="Tips1" width="60" height="60" alt="UMTS Weaver Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" class="text3">
-                    10. Trollcombiner
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWitchDoctorAdept.jpg" class="Tips1" width="60" height="60" alt="Pirates Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Hammer_17.jpg" class="Tips1" width="60" height="60" alt="Lenins Hammers"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPhotonTorpedo.jpg" class="Tips1" width="60" height="60" alt="Admirals Torpedo"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMurloc.jpg" class="Tips1" width="60" height="60" alt="Birds of Terror"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMeteor3.jpg" class="Tips1" width="60" height="60" alt="Rockbombard"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDeathMissiles.jpg" class="Tips1" width="60" height="60" alt="Rocket Battery"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWindsBow.jpg" class="Tips1" width="60" height="60" alt="Marxsman Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNINV_Weapon_Crossbow_03.jpg" class="Tips1" width="60" height="60" alt="Crossbowmen"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNAnomaly.jpg" class="Tips1" width="60" height="60" alt="Yellow-Green Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNImprovedFeedBack.jpg" class="Tips1" width="60" height="60" alt="Red-Blue Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRainbow_Laser.jpg" class="Tips1" width="60" height="60" alt="Rainbow Laser"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    11. Hut of the Pirate
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDrunkenPirate.jpg" class="Tips1" width="60" height="60" alt="Drunken Singing Pirate"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPirateWithParrot.jpg" class="Tips1" width="60" height="60" alt="Pirate with Parrot"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHomingPidgeon.jpg" class="Tips1" width="60" height="60" alt="Homing Pidgeon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSheep.jpg" class="Tips1" width="60" height="60" alt="Sheeplauncher"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBurningOwl.jpg" class="Tips1" width="60" height="60" alt="Buring Owl"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNadvglaive.jpg" class="Tips1" width="60" height="60" alt="Advanced Glaive"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSnowOwl2.jpg" class="Tips1" width="60" height="60" alt="Snowowl"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGnollArrowCannon.jpg" class="Tips1" width="60" height="60" alt="Cute Gamma Cannon"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMorgan.jpg" class="Tips1" width="60" height="60" alt="Fountain Hill Rum Bomb"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBlood_Wine.jpg" class="Tips1" width="60" height="60" alt="Blood Wine Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNTUX.jpg" class="Tips1" width="60" height="60" alt="TUX"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    12. Bob's Guns
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEnsnare.jpg" class="Tips1" width="60" height="60" alt="Net"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNReveal.jpg" class="Tips1" width="60" height="60" alt="Goblin Scope Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEgg.jpg" class="Tips1" width="60" height="60" alt="Mini Dodo Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDodo.jpg" class="Tips1" width="60" height="60" alt="Rocket Dodo"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNANA_WaterBubble.jpg" class="Tips1" width="60" height="60" alt="Sneaking Death"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNArcaneBurst.jpg" class="Tips1" width="60" height="60" alt="Arcane Explosion"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNANAOrbOfLightning.jpg" class="Tips1" width="60" height="60" alt="Subwave"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDeathCoil.jpg" class="Tips1" width="60" height="60" alt="Higgs Torpedo"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNPenguin.jpg" class="Tips1" width="60" height="60" alt="Penguin key for your ship"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" class="text3">
-                    13. Fishing Hut
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEnsnare.jpg" class="Tips1" width="60" height="60" alt="Net"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFishing1.jpg" class="Tips1" width="60" height="60" alt="Fishing Rod"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEnvenomedSpear.jpg" class="Tips1" width="60" height="60" alt="Harpoon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/PASBTNElunesBlessing.jpg" class="Tips1" width="60" height="60" alt="Animal Transmitter"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFlameUP.jpg" class="Tips1" width="60" height="60" alt="Burning Fish Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNMurgulBloodGill.jpg" class="Tips1" width="60" height="60" alt="Fouled Burning Fish Cannon"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGlyph.jpg" class="Tips1" width="60" height="60" alt="Fouled Burning Fish Thrower"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNFishingShip.jpg" class="Tips1" width="60" height="60" alt="Fishing Boat"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNOrcWarlockRed.jpg" class="Tips1" width="60" height="60" alt="Whale Hunter"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    14. Equipment Merchant
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHumanLumberUpgrade1.jpg" class="Tips1" width="60" height="60" alt="Weak Repair Wood"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHumanLumberUpgrade2.jpg" class="Tips1" width="60" height="60" alt="Normal Repair Wood"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRepair.jpg" class="Tips1" width="60" height="60" alt="Repair Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNEngineeringUpgrade.jpg" class="Tips1" width="60" height="60" alt="Mechanics Crew"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNLightSail.jpg" class="Tips1" width="60" height="60" alt="Light Sail"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNBronzeSail.jpg" class="Tips1" width="60" height="60" alt="Great Sail"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGoblinSail.jpg" class="Tips1" width="60" height="60" alt="Goblin Sail"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNHealingSpray.jpg" class="Tips1" width="60" height="60" alt="Smoke Machine"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNStoneArchitecture.jpg" class="Tips1" width="60" height="60" alt="Stone Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNArcaniteArchitecture.jpg" class="Tips1" width="60" height="60" alt="Bronze Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNImbuedMasonry.jpg" class="Tips1" width="60" height="60" alt="Gold Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-                <td valign="top" class="text3">
-                    15. Equipment Combiner
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGolemThunderClap.jpg" class="Tips1" width="60" height="60" alt="Upgraded Stone Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNInvulnerable.jpg" class="Tips1" width="60" height="60" alt="Upgraded Bronze Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNTransmute.jpg" class="Tips1" width="60" height="60" alt="Upgraded Gold Hull"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNWindWalkOn.jpg" class="Tips1" width="60" height="60" alt="Upgraded Diamond Hull"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNUnholyArmor.jpg" class="Tips1" width="60" height="60" alt="Upgraded Repair Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNImprovedUnholyArmor.jpg" class="Tips1" width="60" height="60" alt="Upgraded Mechanics Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNVillagerMan1.jpg" class="Tips1" width="60" height="60" alt="Swedish Repair Kit"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNGoblinSapper.jpg" class="Tips1" width="60" height="60" alt="Goblin Repair Tool"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1" alt=""></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td valign="top" class="text3">
-                    16. Weapontrader
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNs_Firebomb1.jpg" class="Tips1" width="60" height="60" alt="Grenade Launcher"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDemonicArtifact.jpg" class="Tips1" width="60" height="60" alt="Bombarding Sailors"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNOtherBarrel.jpg" class="Tips1" width="60" height="60" alt="Explosive Barrel Catapult"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNbonecrusherGS.jpg" class="Tips1" width="60" height="60" alt="The Dodo Extinction"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNRocketFlare1.jpg" class="Tips1" width="60" height="60" alt="Medium Rocket"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNDrunkenRocket.jpg" class="Tips1" width="60" height="60" alt="Heavy Rocket"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNOrbOfVenom.jpg" class="Tips1" width="60" height="60" alt="Microwave Roentgen"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNNuke1.jpg" class="Tips1" width="60" height="60" alt="Depleted Uranium"></div>
-                    </div>
-                    <div class="items-row">
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNShotgun1.jpg" class="Tips1" width="60" height="60" alt="Basic Shotgun Crew"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/BTNSuperperforator1.jpg" class="Tips1" width="60" height="60" alt="Superperforator"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/emptyslot.jpg" width="60" height="60" class="Tips1"></div>
-                        <div class="item"><img src="./WC3BS.com - Battleships Crossfire League_files/12slot.jpg" width="60" height="60" class="Tips1"></div>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <script src="index.js"></script>
+            </div>
+        </div>
+        <script src="index.js"></script>
     </body>
 </html>
