@@ -194,7 +194,7 @@ body {
     padding: 5px;
     top: -5px;
     left: -5px;
-    filter: none;
+    filter: none !important;
 }
 .green-bordered::before {
     content: "";
