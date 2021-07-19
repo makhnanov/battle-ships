@@ -1179,6 +1179,7 @@ var app6 = new Vue({
     methods: {
         select: function (event) {
             let selectedImg = event.target;
+            selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
             this.selectedItem = selectedImg.alt;
             let selectedImageContainer = selectedImg.parentElement;
             let containerClassList = selectedImageContainer.classList;
