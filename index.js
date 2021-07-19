@@ -1141,8 +1141,7 @@ var app6 = new Vue({
             for (let item of list) {
                 item.parentElement.classList.remove('scaled');
                 item.parentElement.classList.remove('grayed');
-                item.parentElement.classList.remove('thin-f');
-                item.parentElement.classList.remove('thin-l');
+                item.parentElement.classList.remove('yellow-bordered');
             }
             for (let item of list) {
                 let alt = item.getAttribute('alt');
@@ -1153,8 +1152,7 @@ var app6 = new Vue({
                 value = value.toLowerCase()
                 if (alt.includes(value)) {
                     item.parentElement.classList.add('scaled');
-                    item.parentElement.classList.add('thin-f');
-                    item.parentElement.classList.add('thin-l');
+                    item.parentElement.classList.add('yellow-bordered');
                 } else {
                     item.parentElement.classList.add('grayed');
                 }
@@ -1163,21 +1161,25 @@ var app6 = new Vue({
     },
     methods: {
         select: function (event) {
+            let list = document.getElementsByTagName('img');
+            for (let item of list) {
+                if (item.parentElement.classList.contains('green-bordered')) {
+                    item.parentElement.classList.remove('green-bordered');
+                }
+            }
+
             this.selectedItem = event.target.alt;
             let parentClassList = event.target.parentElement.classList;
-            if (parentClassList.contains('bb')) {
-                event.target.parentElement.classList.remove('b');
-                // event.target.parentElement.classList.remove('fat-l');
-
-                // if (parentClassList.contains('scaled')) {
-                //     event.target.parentElement.classList.remove('scaled');
-                //     event.target.parentElement.classList.remove('bb');
-                // } else {
-                //     event.target.parentElement.classList.add('scaled');
-                // }
+            if (parentClassList.contains('green-bordered')) {
+                event.target.parentElement.classList.remove('green-bordered');
+            } else if (parentClassList.contains('yellow-bordered')) {
+                event.target.parentElement.classList.remove('yellow-bordered')
+                event.target.parentElement.classList.add('rainbow-bordered');
+            } else if (parentClassList.contains('rainbow-bordered')) {
+                event.target.parentElement.classList.remove('rainbow-bordered')
+                event.target.parentElement.classList.add('yellow-bordered')
             } else {
-                event.target.parentElement.classList.add('bb');
-                // event.target.parentElement.classList.add('fat-l');
+                event.target.parentElement.classList.add('green-bordered');
             }
         }
     },

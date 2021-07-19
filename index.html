@@ -58,12 +58,13 @@
                                                         : ''
                                                 ]"
                                                         v-on:click="select"
-                                                        class="content"
+                                                        class="content no-select"
                                                         :src="'images/' +  (reforged ? 'R' : '') + itemData.img + '.' + (itemData.isJpg || shopNumber ? 'jpg' : 'png')"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
                                                         :alt="itemData.name"
+                                                        draggable="false"
                                                 >
                                                 <img
                                                         v-if="reforged"
@@ -74,12 +75,13 @@
                                                         : ''
                                                 ]"
                                                         v-on:click="select"
-                                                        class="content"
+                                                        class="content no-select"
                                                         :src="'images/R' + itemData.img + '.png'"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
                                                         :alt="itemData.name"
+                                                        draggable="false"
                                                 >
                                             </div>
                                         </div>
