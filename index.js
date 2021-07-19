@@ -1152,6 +1152,10 @@ var app6 = new Vue({
                 value = value.toLowerCase()
                 if (alt.includes(value)) {
                     item.parentElement.classList.add('scaled');
+                    if (item.parentElement.classList.contains('green-bordered')) {
+                        item.parentElement.classList.remove('green-bordered');
+                        item.parentElement.classList.add('rainbow-bordered');
+                    }
                     item.parentElement.classList.add('yellow-bordered');
                 } else {
                     item.parentElement.classList.add('grayed');
@@ -1161,21 +1165,35 @@ var app6 = new Vue({
     },
     methods: {
         select: function (event) {
+            let selectedImg = event.target;
+            this.selectedItem = selectedImg.alt;
+            let selectedImageContainer = selectedImg.parentElement;
+            let containerClassList = selectedImageContainer.classList;
+
             let list = document.getElementsByTagName('img');
             for (let item of list) {
-                if (item.parentElement.classList.contains('green-bordered')) {
-                    item.parentElement.classList.remove('green-bordered');
+                let bruteForceImageContainer = item.parentElement;
+                if (
+                    bruteForceImageContainer.classList.contains('green-bordered')
+                    && bruteForceImageContainer !== selectedImageContainer
+                ) {
+                    bruteForceImageContainer.classList.remove('green-bordered');
+                } else if (
+                    bruteForceImageContainer.classList.contains('rainbow-bordered')
+                    && bruteForceImageContainer !== selectedImageContainer
+                ) {
+                    bruteForceImageContainer.classList.remove('rainbow-bordered');
+                    bruteForceImageContainer.classList.add('yellow-bordered');
                 }
             }
 
-            this.selectedItem = event.target.alt;
-            let parentClassList = event.target.parentElement.classList;
-            if (parentClassList.contains('green-bordered')) {
+
+            if (containerClassList.contains('green-bordered')) {
                 event.target.parentElement.classList.remove('green-bordered');
-            } else if (parentClassList.contains('yellow-bordered')) {
+            } else if (containerClassList.contains('yellow-bordered')) {
                 event.target.parentElement.classList.remove('yellow-bordered')
                 event.target.parentElement.classList.add('rainbow-bordered');
-            } else if (parentClassList.contains('rainbow-bordered')) {
+            } else if (containerClassList.contains('rainbow-bordered')) {
                 event.target.parentElement.classList.remove('rainbow-bordered')
                 event.target.parentElement.classList.add('yellow-bordered')
             } else {

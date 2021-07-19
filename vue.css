@@ -85,8 +85,8 @@ body {
     transform: scale(1.2);
 }
 .grayed {
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+    -webkit-filter: grayscale(65%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(65%);
 }
 
 
@@ -128,7 +128,11 @@ body {
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(-135deg, #fbfb00, rgba(251, 251, 0, 0) 77%), linear-gradient(-45deg, #fbfb00, rgba(251, 179, 0, 0) 77%), linear-gradient(45deg, #fbfb00, rgba(251, 251, 0, 0) 77%), linear-gradient(135deg, #fbfb00, rgba(251, 251, 0, 0) 77%);
+    background-image:
+            linear-gradient(-135deg, #fbfb00, rgba(251, 251, 0, 0) 125%),
+            linear-gradient(-45deg, #fbfb00, rgba(251, 179, 0, 0) 125%),
+            linear-gradient(45deg, #fbfb00, rgba(251, 251, 0, 0) 125%),
+            linear-gradient(135deg, #fbfb00, rgba(251, 251, 0, 0) 125%);
     animation: rotate 5s linear infinite;
 }
 .yellow-bordered::after {
@@ -150,6 +154,7 @@ body {
     padding: 5px;
     top: -5px;
     left: -5px;
+    filter: none;
 }
 .green-bordered::before {
     content: "";
