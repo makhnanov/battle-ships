@@ -51,15 +51,9 @@
                                             <div class="img-container">
                                                 <img
                                                         v-if="!reforged"
-                                                        v-bind:class="[
-                                                    !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
-                                                        ? ''
-                                                        // ? '' founded
-                                                        : ''
-                                                ]"
                                                         v-on:click="select"
                                                         class="content no-select"
-                                                        :src="'images/' +  (reforged ? 'R' : '') + itemData.img + '.' + (itemData.isJpg || shopNumber ? 'jpg' : 'png')"
+                                                        :src="'images/' +  (reforged ? 'R' : '') + itemData.img + '.' + (itemData.isJpg || shopNumber > 1 ? 'jpg' : 'png')"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
@@ -68,12 +62,6 @@
                                                 >
                                                 <img
                                                         v-if="reforged"
-                                                        v-bind:class="[
-                                                    !itemNumber || itemNumber === 1 || itemNumber === 9 || itemNumber === 11 || itemNumber === 5 || itemNumber === 6
-                                                        ? ''
-                                                        // ? '' founded
-                                                        : ''
-                                                ]"
                                                         v-on:click="select"
                                                         class="content no-select"
                                                         :src="'images/R' + itemData.img + '.png'"

@@ -84,36 +84,46 @@ var app6 = new Vue({
                             img: 'YellowLightning',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         },{
                             name: 'Green Laser',
                             img: 'Green_Laser',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
+
                         },{
                             name: 'Blue Laser',
                             img: 'Spell_Nature_Lightning',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         },{
                             name: 'Red Laser',
                             img: 'Pyramid',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
+
                         },{
                             name: 'Roentgen Radiator',
                             img: 'ReplenishHealth',
                             lvl: 1,
                             doubled: '',
+
                         },{
                             name: 'Waterthrower',
                             img: 'PlasmaLaserGun',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
+
                         },{
                             name: 'Flamethrower',
                             img: 'Fire',
                             lvl: 1,
                             doubled: '',
+
                         },{
                             name: 'Pirates Torpedo',
                             img: 'SoulGem',
@@ -129,6 +139,8 @@ var app6 = new Vue({
                             img: 'Lightning',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
+
                         },{
                             name: 'Capitalistic Gun',
                             img: 'ChestOfGold',
@@ -139,6 +151,7 @@ var app6 = new Vue({
                             img: '12slot',
                             lvl: 1,
                             doubled: '',
+                            isJpg: true,
                         },
                     ]
                 },
