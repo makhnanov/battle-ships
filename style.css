@@ -1,5 +1,9 @@
-body {
-    /*transform: scale(0.7);*/
+body { /*transform: scale(0.7);*/
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
 }
 .fat * > div.for-big-image {
     padding-left: 0;
@@ -29,6 +33,7 @@ body {
     height: 299px;
     border: 1px solid white;
     margin-bottom: 15px;
+    margin-right: 10px;
 }
 .b-shadowed {
     box-shadow: 5px 5px 2px 1px rgba(255, 255, 255, 0.5);
@@ -47,11 +52,28 @@ body {
     margin-left: 5px;
 }
 .founded {
-    animation: bordered 0.1s forwards cubic-bezier(.17,.67,.83,.67);
+    animation: bordered 0.1s forwards cubic-bezier(.17, .67, .83, .67);
 }
 @font-face {
     font-family: NewYorkTimes;
     src: url(NewYorkTimes.ttf);
+}
+.reforged-word {
+    align-self: center;
+    padding-right: 9px;
+    padding-left: 10px;
+}
+.reforged-block {
+    display: flex;
+    height: 30px;
+    width: 333px;
+    align-self: center;
+}
+.reforged-checkbox {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: 0;
+    text-align: center;
 }
 .search-word {
     align-self: center;
@@ -61,16 +83,16 @@ body {
 }
 .search-block {
     display: flex;
-    width: 280px;
-    margin-top: 0;
-    margin-bottom: 20px;
     justify-content: space-between;
     border-top: 2px solid #FFC884;
     border-bottom: 2px solid #FFC884;
+    height: 30px;
+    width: 333px;
+    align-self: center;
 }
 .search-input {
     width: 215px;
-    background-color:rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     border: 0;
     text-align: center;
@@ -90,7 +112,7 @@ body {
 }
 .scaled {
     animation: need-scale 5s forwards;
-    transition-timing-function: cubic-bezier(.32,2,.55,.27);
+    transition-timing-function: cubic-bezier(.32, 2, .55, .27);
 }
 @keyframes need-scale {
     from {
@@ -113,16 +135,12 @@ body {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 *, *::before, *::after {
     box-sizing: border-box;
 }
-
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 @keyframes rotate {
     100% {
         transform: rotate(1turn);
@@ -151,11 +169,7 @@ body {
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image:
-            linear-gradient(-135deg, #fbfb00, rgba(251, 251, 0, 0) 125%),
-            linear-gradient(-45deg, #fbfb00, rgba(251, 179, 0, 0) 125%),
-            linear-gradient(45deg, #fbfb00, rgba(251, 251, 0, 0) 125%),
-            linear-gradient(135deg, #fbfb00, rgba(251, 251, 0, 0) 125%);
+    background-image: linear-gradient(-135deg, #fbfb00, rgba(251, 251, 0, 0) 125%), linear-gradient(-45deg, #fbfb00, rgba(251, 179, 0, 0) 125%), linear-gradient(45deg, #fbfb00, rgba(251, 251, 0, 0) 125%), linear-gradient(135deg, #fbfb00, rgba(251, 251, 0, 0) 125%);
     animation: rotate 5s linear infinite;
 }
 .yellow-bordered::after {
@@ -167,7 +181,6 @@ body {
     width: calc(100% - 12px);
     height: calc(100% - 12px);
 }
-
 .green-bordered {
     position: relative;
     z-index: 0;
@@ -190,11 +203,7 @@ body {
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image:
-            linear-gradient(-135deg, #399953, rgba(57, 153, 83, 0) 150%),
-            linear-gradient(-45deg, #399953, rgba(57, 153, 83, 0) 150%),
-            linear-gradient(45deg, #399953, rgba(57, 153, 83, 0) 150%),
-            linear-gradient(135deg, #399953, rgba(57, 153, 83, 0) 150%);
+    background-image: linear-gradient(-135deg, #399953, rgba(57, 153, 83, 0) 150%), linear-gradient(-45deg, #399953, rgba(57, 153, 83, 0) 150%), linear-gradient(45deg, #399953, rgba(57, 153, 83, 0) 150%), linear-gradient(135deg, #399953, rgba(57, 153, 83, 0) 150%);
     animation: rotate 5s linear infinite;
 }
 .green-bordered::after {
@@ -206,7 +215,6 @@ body {
     width: calc(100% - 12px);
     height: calc(100% - 12px);
 }
-
 .rainbow-bordered {
     position: relative;
     z-index: 0;
@@ -230,11 +238,7 @@ body {
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image:
-            linear-gradient(-135deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%),
-            linear-gradient(-45deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%),
-            linear-gradient(45deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%),
-            linear-gradient(135deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%);
+    background-image: linear-gradient(-135deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%), linear-gradient(-45deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%), linear-gradient(45deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%), linear-gradient(135deg, rgb(55, 122, 255), rgba(55, 122, 245, 0) 150%);
     animation: rotate 5s linear infinite;
 }
 .rainbow-bordered::after {
@@ -246,23 +250,6 @@ body {
     width: calc(100% - 12px);
     height: calc(100% - 12px);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .no-select {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -272,7 +259,6 @@ body {
     user-select: none; /* Non-prefixed version, currently */
     user-drag: none;
 }
-
 <!--
 @media print {
     body {
@@ -283,8 +269,6 @@ body {
         padding: 0;
     }
 }
-
-
 @media all, screen, handheld {
     BODY {
         font-family: verdana, arial, geneva, helvetica, sans-serif;
@@ -295,66 +279,53 @@ body {
         font-family: Verdana, arial, geneva, helvetica, sans-serif;
     }
 }
-
 H1 {
     font-size: 175%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 H2 {
     font-size: 150%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 H3 {
     font-size: 125%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 H4 {
     font-size: 100%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 H5 {
     font-size: 75%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 H6 {
     font-size: 50%;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 PRE, TT, CODE {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 A:link {
     text-decoration: none;
     color: #CC7A00;
 }
-
 A:visited {
     text-decoration: none;
     color: #9C5A00;
 }
-
 A:active {
     text-decoration: none;
     color: #FFB400;
 }
-
 A:hover {
     text-decoration: none;
 }
-
 TH {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 0px;
 }
-
 .firstcol {
     border: 2px black;
     margin: .5em;
@@ -365,7 +336,6 @@ TH {
     margin-top: 0px;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 .secondcol {
     border: 2px black;
     margin: .5em;
@@ -376,125 +346,105 @@ TH {
     margin-top: 0px;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 TD {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 0px;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 table {;
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 0px;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 p {
     margin-left: 0px;
     font-weight: lighter;
 }
-
 blockquote, img {
     margin-left: 0px;
 }
-
 hr {
     margin-left: 0px;
     margin-right: 0px;
     font-size: 25px;
 }
-
 body {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-
 *.text {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: small;
     color: #FFC884;
     font-weight: lighter;
 }
-
 .textfett {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: small;
     color: #FFC884;
     font-weight: bold;
 }
-
 .text2 {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: x-large;
     color: #FFC884;
     font-weight: bold;
 }
-
 .text4 {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: x-small;
     color: #FFC884;
     font-weight: lighter;
 }
-
 .text5 {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: xx-small;
     color: #FFC884;
     font-weight: bold;
 }
-
 .text6 {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: xx-large;
     color: #FFC884;
     font-weight: bold;
 }
-
 .navbar {
     font-family: tahoma, arial, sans-serif;
     font-size: medium;
     color: #FFC884;
     text-decoration: none;
 }
-
 .text_weiss {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: small;
     font-weight: lighter;
     color: #ffffff
 }
-
 .text_rot {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: small;
     font-weight: lighter;
     color: #ff0000
 }
-
 .text_grün {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: 10px;
     font-weight: lighter;
     color: #22aa22
 }
-
-
 .text_unterstrichen {
     font-size: small;
     color: #FFC884;
     font-weight: lighter;
     text-decoration: underline;
 }
-
 .link_farbe {
     font-family: tahoma, arial, sans-serif;
     font-size: 16px;
     color: #1fb790;
     font-weight: lighter;
 }
-
 .navbar2 {
     font-family: tahoma, arial, sans-serif;
     font-size: 22px;
@@ -502,40 +452,30 @@ body {
     font-weight: bold;
     text-decoration: none;
 }
-
 .headline {
     font-family: tahoma, arial, sans-serif;
     font-size: large;
     color: #FFC884;
     font-weight: bold;
 }
-
 .bildunterschrift {
     font-family: tahoma, arial, sans-serif;
     font-size: 10px;
     color: #FFC884;
     font-weight: lighter;
 }
-
 .text_gruen_fett {
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
     font-size: x-large;
     color: #007175;
     font-weight: bold;
 }
-/*.founded {*/
-/*    animation: bordered 1s forwards cubic-bezier(.17,.67,.83,.67);*/
-/*}*/
-
-
+/*.founded {*//*    animation: bordered 1s forwards cubic-bezier(.17,.67,.83,.67);*//*}*/
 @keyframes background {
     50% {
         background: skyblue;
         box-shadow: 0 -200px 100px -100px yellowgreen inset;
     }
-}
-.Tips1 {
-    position: absolute;
 }
 .item {
     width: 60px;
@@ -546,4 +486,40 @@ body {
 .items-row {
     display: flex;
     flex-direction: row;
+}
+.current-selected-item {
+    width: 333px;
+    border: 1px solid white;
+    height: 613px;
+    position: sticky;
+    top: 0px;
+}
+.left-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: calc(100% - 396px);
+}
+.search-configuration {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    z-index: 1000;
+    width: 100%;
+    height: 80px;
+    border: 1px solid white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.d-flex {
+    display: flex;
+}
+.reforged-checkbox {
+    align-self: center;
+}
+* {
+    box-sizing: border-box;
+    user-select: none;
 }

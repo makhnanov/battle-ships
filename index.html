@@ -8,7 +8,7 @@
     </head>
     <body class="text" bgcolor="#000">
         <div id="app-6">
-            <div style="display: flex;justify-content: space-between;">
+            <div class="header">
                 <div>
                     <img src="./images/FirstShip.svg" width="100px" height="100px" alt="">
                 </div>
@@ -21,25 +21,22 @@
                     <img src="./images/MegaLogoShip.svg" width="100px" height="100px" alt="">
                 </div>
             </div>
-            <div style="display: flex;justify-content: space-around;">
-                <div style="width: 300px;padding-left: 35px;">
-                    <span v-if="selectedItem" class="ny">Selected item: </span>
-                    {{ selectedItem }}
-                </div>
-                <div class="search-block">
-                    <div class="ny search-word">
-                        Search:
+            <div class="d-flex">
+                <div class="left-block">
+                    <div class="search-configuration">
+                            <div class="search-block">
+                                <div class="ny search-word">
+                                    Search:
+                                </div>
+                                <input class="search-input" v-model="search" placeholder="Type &#171;cannon&#187; for example ..."/>
+                            </div>
+                            <div class="reforged-block">
+                                <div class="ny reforged-word">
+                                    Reforged:
+                                </div>
+                                <input style="display: flex;align-self: center;" type="checkbox" class="reforged-checkbox" v-model="reforged" />
+                            </div>
                     </div>
-                    <div>
-                        <input class="search-input" v-model="search" placeholder="Type &#171;cannon&#187; for example ..."/>
-                    </div>
-                </div>
-                <div style="width: 300px">
-                    <input v-model="reforged" type="checkbox"> Reforged icons
-                </div>
-            </div>
-            <div style="display: flex;">
-                <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly;width: calc(100% - 396px);">
                     <div v-for="(shop, shopNumber) in shops">
                         <div class="b-shadowed shop-container">
                             <p class="shop-title">{{ shop.title }}</p>
@@ -79,7 +76,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="b-shadowed" style="width: 333px;border: 1px solid white; height: 613px;position: sticky;top: 40px;">
+                <div class="b-shadowed current-selected-item">
+                    <div style="width: 300px;padding-left: 35px;">
+                        <span v-if="selectedItem" class="ny">Selected item: </span>
+                        {{ selectedItem }}
+                    </div>
                 </div>
             </div>
         </div>
