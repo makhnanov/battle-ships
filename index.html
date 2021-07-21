@@ -28,13 +28,18 @@
                                 <div class="ny search-word">
                                     Search:
                                 </div>
-                                <input class="search-input" v-model="search" placeholder="Type &#171;cannon&#187; for example ..."/>
+                                <input id="search-input" v-model="search" placeholder="Type e.g. &#171;cannon&#187;"/>
+                                <div v-on:click="clearSearch" class="ny clear-word" v-bind:class="{ hidden: !search }">
+                                    Clear
+                                </div>
                             </div>
                             <div class="reforged-block">
-                                <div class="ny reforged-word">
-                                    Reforged:
-                                </div>
-                                <input style="display: flex;align-self: center;" type="checkbox" class="reforged-checkbox" v-model="reforged" />
+                                <label style="display: inherit;">
+                                    <input type="checkbox" class="reforged-checkbox" v-model="reforged" />
+                                    <div class="ny reforged-word">
+                                        Reforged icons
+                                    </div>
+                                </label>
                             </div>
                     </div>
                     <div v-for="(shop, shopNumber) in shops">

@@ -1213,9 +1213,20 @@ var app6 = new Vue({
             } else {
                 event.target.parentElement.classList.add('green-bordered');
             }
+        },
+        clearSearch: function () {
+            this.search = '';
         }
     },
     created: function () {
+        window.addEventListener("keydown",function (e) {
+            if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
+                e.preventDefault();
+                const input = document.getElementById('search-input');
+                input.select();
+            }
+        })
+
         let fromCenter = 3;
         let border = 2;
         let margin = 3;

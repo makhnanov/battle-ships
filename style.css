@@ -62,6 +62,8 @@ body { /*transform: scale(0.7);*/
     align-self: center;
     padding-right: 9px;
     padding-left: 10px;
+    font-size: 20px;
+    line-height: 30px;
 }
 .reforged-block {
     display: flex;
@@ -69,17 +71,25 @@ body { /*transform: scale(0.7);*/
     width: 333px;
     align-self: center;
 }
+.hidden {
+    visibility: hidden;
+}
 .reforged-checkbox {
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: 0;
     text-align: center;
+    align-self: center;
+    width: 18px;
+    height: 18px;
 }
 .search-word {
     align-self: center;
     border-right: 2px solid;
     padding-right: 9px;
     padding-left: 10px;
+    font-size: 20px;
+    line-height: 30px;
 }
 .search-block {
     display: flex;
@@ -90,16 +100,32 @@ body { /*transform: scale(0.7);*/
     width: 333px;
     align-self: center;
 }
-.search-input {
-    width: 215px;
+.clear-word {
+    align-self: center;
+    border-left: 2px solid;
+    padding-right: 9px;
+    padding-left: 10px;
+    font-size: 20px;
+    line-height: 30px;
+}
+#search-input {
+    width: 170px;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: 0;
     text-align: center;
+    font-size: 15px;
+    align-self: center;
+    line-height: 30px;
 }
-.search-input:focus-visible {
+#search-input:focus-visible {
     border: 0;
     outline: none;
+}
+#search-input::selection {
+    background-color: #FFC884;
+    color: #000;
+    font-weight: bold;
 }
 .ny {
     font-family: NewYorkTimes;
@@ -352,7 +378,7 @@ TD {
     margin-top: 0px;
     font-family: Verdana, arial, geneva, helvetica, sans-serif;
 }
-table {;
+table {
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 0px;
@@ -516,10 +542,18 @@ body {
 .d-flex {
     display: flex;
 }
-.reforged-checkbox {
-    align-self: center;
-}
 * {
     box-sizing: border-box;
     user-select: none;
+}
+.checkboxes label {
+    display: inline-block;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+.checkboxes input {
+    vertical-align: middle;
+}
+.checkboxes label span {
+    vertical-align: middle;
 }
