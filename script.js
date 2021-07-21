@@ -1151,6 +1151,10 @@ var app6 = new Vue({
     watch: {
         search: function (value) {
             let list = document.getElementsByTagName('img');
+
+            // let selectedImg = list.get(0);
+            // selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
+
             for (let item of list) {
                 item.parentElement.classList.remove('scaled');
                 item.parentElement.classList.remove('grayed');
@@ -1179,7 +1183,6 @@ var app6 = new Vue({
     methods: {
         select: function (event) {
             let selectedImg = event.target;
-            selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
             this.selectedItem = selectedImg.alt;
             let selectedImageContainer = selectedImg.parentElement;
             let containerClassList = selectedImageContainer.classList;
@@ -1216,6 +1219,10 @@ var app6 = new Vue({
         },
         clearSearch: function () {
             this.search = '';
+        },
+        focusSearch: function () {
+            const input = document.getElementById('search-input');
+            input.focus();
         }
     },
     created: function () {
