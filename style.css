@@ -47,10 +47,12 @@ body { /*transform: scale(0.7);*/
     justify-content: space-between;
     /*height: 240px;*/
     height: 198px;
+    margin-top: 29px;
     width: 368px;
-    margin-top: 15px;
+    /*margin-top: 15px;*/
     margin-left: 5px;
     margin-left: 27px;
+
 }
 .founded {
     animation: bordered 0.1s forwards cubic-bezier(.17, .67, .83, .67);
