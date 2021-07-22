@@ -55,7 +55,13 @@
                                                         v-if="!reforged"
                                                         v-on:click="select"
                                                         class="content no-select"
-                                                        :src="'images/' +  itemData.img + '.' + (itemData.isJpg || shopNumber > 1 ? 'jpg' : 'png')"
+                                                        v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
+                                                        :src="'images/' +  itemData.img + '.'
+                                                        + (
+                                                        ((itemData.isJpg || shopNumber > 1) && itemData.img !== '12slot')
+                                                        ? 'jpg'
+                                                        : 'png'
+                                                        )"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
@@ -63,6 +69,7 @@
                                                         draggable="false"
                                                 >
                                                 <img
+                                                        v-bind:class="{ active: isActive }"
                                                         v-if="reforged"
                                                         v-on:click="select"
                                                         class="content no-select"
@@ -82,17 +89,19 @@
                     </div>
                 </div>
                 <div class="b-shadowed current-selected-item">
-                    <div style="width: 300px;padding-left: 35px;">
-                        <img src="images/map/bsmap.png" alt="" width="280px">
-                        <div v-if="selectedItem && selectedItem !== '#'" style="font-size: 20px;" class="">
-                            {{ selectedItem }}
-                            <div v-for="(item, index) in shops" :key="shops.title">
-                                <div v-for="item in shops[index].items" :key="item.name">
-                                    <img style="position:absolute;top:0px;"
-                                         v-if="selectedItem === item.name"
-                                         :src="'images/map/bsmap' + index + '.png'"
-                                         @error="$event.target.src='images/map/bsmap0.png'"
-                                         alt="" width="280px">
+                    <div class="centered">
+                        <div style="width: 300px;padding-left: 35px;">
+                            <img src="images/map/bsmap.png" alt="" width="280px">
+                            <div v-if="selectedItem && selectedItem !== '#'" style="font-size: 20px;" class="">
+                                {{ selectedItem }}
+                                <div v-for="(item, index) in shops" :key="shops.title">
+                                    <div v-for="item in shops[index].items" :key="item.name">
+                                        <img style="position:absolute;top:0px;"
+                                             v-if="selectedItem === item.name"
+                                             :src="'images/map/bsmap' + index + '.png'"
+                                             @error="$event.target.src='images/map/bsmap0.png'"
+                                             alt="" width="280px">
+                                    </div>
                                 </div>
                             </div>
                         </div>

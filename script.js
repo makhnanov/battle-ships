@@ -72,7 +72,6 @@ var app6 = new Vue({
                             img: '12slot',
                             lvl: 1,
                             doubled: '',
-                            isJpg: true,
                         }
                     ]
                 },
@@ -151,7 +150,6 @@ var app6 = new Vue({
                             img: '12slot',
                             lvl: 1,
                             doubled: '',
-                            isJpg: true,
                         },
                     ]
                 },
@@ -1184,6 +1182,9 @@ var app6 = new Vue({
         select: function (event) {
             let selectedImg = event.target;
             this.selectedItem = selectedImg.alt;
+            if (selectedImg.alt === '#') {
+                return;
+            }
             let selectedImageContainer = selectedImg.parentElement;
             let containerClassList = selectedImageContainer.classList;
 
