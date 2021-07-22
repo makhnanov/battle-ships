@@ -1148,32 +1148,44 @@ var app6 = new Vue({
     },
     watch: {
         search: function (value) {
-            let list = document.getElementsByTagName('img');
+            const shops = document.getElementsByClassName('shop-images-container');
+            for (let shop of shops) {
+                const parent = shop.parentElement.parentElement;
+                let list = parent.getElementsByTagName('img');
+                parent.classList.remove('d-none');
 
-            // let selectedImg = list.get(0);
-            // selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
+                // let selectedImg = list.get(0);
+                // selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
 
-            for (let item of list) {
-                item.parentElement.classList.remove('scaled');
-                item.parentElement.classList.remove('grayed');
-                item.parentElement.classList.remove('yellow-bordered');
-            }
-            for (let item of list) {
-                let alt = item.getAttribute('alt');
-                if (!alt || !value) {
-                    continue;
+                for (let item of list) {
+                    item.parentElement.classList.remove('scaled');
+                    item.parentElement.classList.remove('grayed');
+                    item.parentElement.classList.remove('yellow-bordered');
                 }
-                alt = alt.toLowerCase();
-                value = value.toLowerCase()
-                if (alt.includes(value)) {
-                    item.parentElement.classList.add('scaled');
-                    if (item.parentElement.classList.contains('green-bordered')) {
-                        item.parentElement.classList.remove('green-bordered');
-                        item.parentElement.classList.add('rainbow-bordered');
+
+                let founded = false;
+                for (let item of list) {
+                    let alt = item.getAttribute('alt');
+                    if (!alt || !value) {
+                        parent.classList.remove('d-none');
+                        continue;
                     }
-                    item.parentElement.classList.add('yellow-bordered');
-                } else {
-                    item.parentElement.classList.add('grayed');
+                    alt = alt.toLowerCase();
+                    value = value.toLowerCase()
+                    if (alt.includes(value)) {
+                        item.parentElement.classList.add('scaled');
+                        if (item.parentElement.classList.contains('green-bordered')) {
+                            item.parentElement.classList.remove('green-bordered');
+                            item.parentElement.classList.add('rainbow-bordered');
+                        }
+                        item.parentElement.classList.add('yellow-bordered');
+                        founded = true;
+                    } else {
+                        item.parentElement.classList.add('grayed');
+                    }
+                }
+                if (!founded && value) {
+                    parent.classList.add('d-none');
                 }
             }
         }
