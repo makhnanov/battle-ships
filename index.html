@@ -59,7 +59,7 @@
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
-                                                        :alt="itemData.img === 'emptyslot' ? '#' : itemData.name"
+                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
                                                         draggable="false"
                                                 >
                                                 <img
@@ -83,8 +83,19 @@
                 </div>
                 <div class="b-shadowed current-selected-item">
                     <div style="width: 300px;padding-left: 35px;">
-                        <span v-if="selectedItem" class="ny">Selected item: </span>
-                        {{ selectedItem }}
+                        <img src="images/map/bsmap.png" alt="" width="280px">
+                        <div v-if="selectedItem && selectedItem !== '#'" style="font-size: 20px;" class="">
+                            {{ selectedItem }}
+                            <div v-for="(item, index) in shops" :key="shops.title">
+                                <div v-for="item in shops[index].items" :key="item.name">
+                                    <img style="position:absolute;top:0px;"
+                                         v-if="selectedItem === item.name"
+                                         :src="'images/map/bsmap' + index + '.png'"
+                                         @error="$event.target.src='images/map/bsmap0.png'"
+                                         alt="" width="280px">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
