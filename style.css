@@ -59,7 +59,6 @@ body { /*transform: scale(0.7);*/
     /*margin-top: 15px;*/
     margin-left: 5px;
     margin-left: 27px;
-
 }
 .founded {
     animation: bordered 0.1s forwards cubic-bezier(.17, .67, .83, .67);
@@ -401,7 +400,7 @@ p {
     font-weight: lighter;
 }
 blockquote, img {
-    margin-left: 0px;
+    /*margin-left: 0px;*/
 }
 hr {
     margin-left: 0px;
@@ -568,4 +567,71 @@ body {
 }
 .checkboxes label span {
     vertical-align: middle;
+}
+#basic-example {
+    /*width: 335px;*/
+    /*height: 160px;*/
+    border: 5px solid red;
+    background: #fff;
+    color: black;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset, img {
+    border: 0;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+caption, th {
+    /*text-align: left;*/
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+q:before, q:after {
+    content: '';
+}
+abbr, acronym {
+    border: 0;
+}
+/* optional Container STYLES */
+.chart {
+    height: 600px;
+    margin: 5px;
+    width: 900px;
+}
+.Treant > p {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+.node-name {
+    font-weight: bold;
+}
+.nodeExample1 {
+    padding: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    width: 70px;
+    font-family: Tahoma;
+    font-size: 12px;
+    text-align: center;
+}
+.nodeExample1 img {
+    display: block;
+    margin: 0 auto;
+}
+.Treant > .node img {
+    float: none !important;
 }

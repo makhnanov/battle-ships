@@ -2,9 +2,12 @@
 <html>
     <head>
         <title>Battle Ships Guide</title>
-        <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js" type="application/javascript"></script>
-        <script src="vue.js" type="application/javascript"></script>
+        <script type="application/javascript" src="treant/vendor/raphael.js"></script>
+        <script type="application/javascript" src="treant/Treant.js"></script>
+        <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script type="application/javascript" src="vue.js"></script>
         <link href="style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="treant/Treant.css" type="text/css"/>
     </head>
     <body class="text" bgcolor="#000">
         <div id="app">
@@ -108,6 +111,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="tree">
+            <div id="basic-example" class="chart Treant Treant-loaded"></div>
         </div>
         <script src="js/shops/weaponMerchant.js" type="application/javascript"></script>
         <script src="js/shops/weaponInventory.js" type="application/javascript"></script>
