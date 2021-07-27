@@ -1,0 +1,13 @@
+#selected-hint {
+    font-size: large;
+    color: #FFC884;
+    font-weight: 600;
+    width: 148px;
+    margin: auto;
+    margin-top: 34%;
+    text-align: center;
+    line-height: 29px;
+}
+#map {
+    width: 331px;
+}

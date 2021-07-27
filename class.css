@@ -635,3 +635,10 @@ abbr, acronym {
 .Treant > .node img {
     float: none !important;
 }
+.outline-btn {
+    border: 2px solid #FFC884;
+    margin-top: 6px;
+}
+.underlined {
+    text-decoration: underline;
+}

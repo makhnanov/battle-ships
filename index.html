@@ -2,11 +2,14 @@
 <html>
     <head>
         <title>Battle Ships Guide</title>
+
         <script type="application/javascript" src="treant/vendor/raphael.js"></script>
         <script type="application/javascript" src="treant/Treant.js"></script>
         <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
         <script type="application/javascript" src="vue.js"></script>
-        <link href="style.css" rel="stylesheet" type="text/css">
+
+        <link href="class.css" rel="stylesheet" type="text/css">
+        <link href="id.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="treant/Treant.css" type="text/css"/>
     </head>
     <body class="text" bgcolor="#000">
@@ -92,22 +95,13 @@
                     </div>
                 </div>
                 <div class="b-shadowed current-selected-item">
-                    <div class="centered">
-                        <div style="width: 300px;padding-left: 35px;">
-                            <img src="images/map/bsmap.png" alt="" width="280px">
-                            <div v-if="selectedItem && selectedItem !== '#'" style="font-size: 20px;" class="">
-                                {{ selectedItem }}
-                                <div v-for="(item, index) in shops" :key="shops.title">
-                                    <div v-for="item in shops[index].items" :key="item.name">
-                                        <img style="position:absolute;top:0px;"
-                                             v-if="selectedItem === item.name"
-                                             :src="'images/map/bsmap' + index + '.png'"
-                                             @error="$event.target.src='images/map/bsmap0.png'"
-                                             alt="" width="280px">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div v-if="selectedItem" id="selected-item">
+                        You can find {{ selectedItem }} here:
+                        <img id="map" src="images/map/bsmap.png">
+                    </div>
+                    <div v-if="!selectedItem" id="selected-hint">
+                        You can find any item using <span class="underlined">Ctrl + F</span>, clear text or selection using <span class="underlined">ESC</span>, select any item for get more info about it or
+                        <div class="outline-btn">PALY GAME</div>
                     </div>
                 </div>
             </div>
