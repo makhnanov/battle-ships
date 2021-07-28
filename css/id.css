@@ -1,0 +1,38 @@
+#selected-hint {
+    margin: auto;
+    margin-top: 34%;
+    text-align: center;
+    line-height: 29px;
+}
+#selected-hint > .hint-title {
+    color: #FFC884;
+    font-weight: 600;
+    font-size: 17px;
+    padding-top: 20px;
+}
+#selected-hint > .hint-button {
+    color: #FFC884;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 5px;
+}
+#selected-hint .game-button {
+    color: #FFC884;
+    font-weight: 600;
+    font-size: 25px;
+    padding: 13px;
+    border: 7px outset #FFC884;
+}
+.game-button:hover {
+    color: black !important;
+    background-color: #FFC884;
+}
+.game-button:active {
+    border-style: inset !important;
+}
+#selected-hint p:first-of-type {
+    padding-top: 0 !important;
+}
+#map {
+    width: 331px;
+}

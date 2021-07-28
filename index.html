@@ -8,9 +8,10 @@
         <script type="application/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
         <script type="application/javascript" src="vue.js"></script>
 
-        <link href="class.css" rel="stylesheet" type="text/css">
-        <link href="id.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="treant/Treant.css" type="text/css"/>
+        <link rel="stylesheet" href="css/common.css" type="text/css"/>
+        <link rel="stylesheet" href="css/id.css" type="text/css">
+        <link rel="stylesheet" href="css/class.css" type="text/css"/>
     </head>
     <body class="text" bgcolor="#000">
         <div id="app">
@@ -43,7 +44,7 @@
                                 <label style="display: inherit;">
                                     <input type="checkbox" class="reforged-checkbox" v-model="reforged" />
                                     <div class="ny reforged-word">
-                                        Reforged icons
+                                        Reforged Icons
                                     </div>
                                 </label>
                             </div>
@@ -64,7 +65,7 @@
                                                         v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
                                                         :src="'images/' +  itemData.img + '.'
                                                         + (
-                                                        ((itemData.isJpg || shopNumber > 1) && itemData.img !== '12slot')
+                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot')
                                                         ? 'jpg'
                                                         : 'png'
                                                         )"
@@ -79,7 +80,7 @@
                                                         v-if="reforged"
                                                         v-on:click="select"
                                                         class="content no-select"
-                                                        :src="'images/R' + itemData.img + '.png'"
+                                                        :src="'images/reforged/R' + itemData.img + '.png'"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
@@ -100,8 +101,14 @@
                         <img id="map" src="images/map/bsmap.png">
                     </div>
                     <div v-if="!selectedItem" id="selected-hint">
-                        You can find any item using <span class="underlined">Ctrl + F</span>, clear text or selection using <span class="underlined">ESC</span>, select any item for get more info about it or
-                        <div class="outline-btn">PALY GAME</div>
+                        <p class="hint-title">Find Any Item:</p>
+                        <p class="hint-button"><span class="border-1">Ctrl</span> + <span class="border-1">F</span></p>
+                        <p class="hint-title">Clear Search / Selection:</p>
+                        <p class="hint-button"><span class="border-1">ESC</span></p>
+                        <p class="hint-title">Get More Info:</p>
+                        <p class="hint-button"><span class="border-1">Just Left Click</span></p>
+                        <p class="hint-title">Improve Memory:</p>
+                        <p style="margin-top: 28px;"><span class="game-button">PALY GAME</span></p>
                     </div>
                 </div>
             </div>
