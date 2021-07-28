@@ -33,9 +33,6 @@ const app = new Vue({
                 let list = parent.getElementsByTagName('img');
                 parent.classList.remove('d-none');
 
-                // let selectedImg = list.get(0);
-                // selectedImg.parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('fat');
-
                 for (let item of list) {
                     item.parentElement.classList.remove('scaled');
                     item.parentElement.classList.remove('grayed');
@@ -46,6 +43,7 @@ const app = new Vue({
                 for (let item of list) {
                     let alt = item.getAttribute('alt');
                     if (!alt || !value) {
+                        shop.classList.remove('with-founded')
                         parent.classList.remove('d-none');
                         continue;
                     }
@@ -58,13 +56,19 @@ const app = new Vue({
                             item.parentElement.classList.add('rainbow-bordered');
                         }
                         item.parentElement.classList.add('yellow-bordered');
-                        founded = true;
+                        if (!founded) {
+                            founded = true;
+                            if (!shop.classList.contains('with-founded')) {
+                                shop.classList.add('with-founded')
+                            }
+                        }
                     } else {
                         item.parentElement.classList.add('grayed');
                     }
                 }
                 if (!founded && value) {
                     parent.classList.add('d-none');
+                    shop.classList.remove('with-founded')
                 }
             }
         }
@@ -115,14 +119,28 @@ const app = new Vue({
         focusSearch: function () {
             const input = document.getElementById('search-input');
             input.focus();
+        },
+        comingSoon: function () {
+            alert('Coming soon');
+        },
+        removeSelectedIdtem: function () {
+            this.selectedItem = '';
         }
     },
     created: function () {
+        var that = this;
         window.addEventListener("keydown",function (e) {
             if (e.keyCode === 114 || (e.ctrlKey && e.keyCode === 70)) {
                 e.preventDefault();
                 const input = document.getElementById('search-input');
                 input.select();
+            }
+            if (e.keyCode === 27) {
+                if (that.selectedItem) {
+                    that.removeSelectedIdtem();
+                } else if (that.search) {
+                    that.search = '';
+                }
             }
         });
 

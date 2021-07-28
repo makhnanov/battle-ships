@@ -2,3 +2,12 @@
     border: 1px outset #FFC884;
     padding: 4px;
 }
+.with-founded {
+    height: 242px;
+    margin-left: 5px;
+    margin-top: 13px;
+}
+.with-founded * > div.for-big-image {
+    /*padding-left: 0;*/
+    width: 80px;
+}
