@@ -58,35 +58,7 @@
                                     <div style="position: relative" v-for="(itemData, itemNumber) in row">
                                         <div class="for-big-image">
                                             <div class="img-container">
-                                                <img
-                                                        v-if="!reforged"
-                                                        v-on:click="select"
-                                                        class="content no-select"
-                                                        v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
-                                                        :src="'images/' +  itemData.img + '.'
-                                                        + (
-                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot')
-                                                        ? 'jpg'
-                                                        : 'png'
-                                                        )"
-                                                        alt=""
-                                                        width="60px"
-                                                        height="60px"
-                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
-                                                        draggable="false"
-                                                >
-                                                <img
-                                                        v-bind:class="{ active: isActive }"
-                                                        v-if="reforged"
-                                                        v-on:click="select"
-                                                        class="content no-select"
-                                                        :src="'images/reforged/R' + itemData.img + '.png'"
-                                                        alt=""
-                                                        width="60px"
-                                                        height="60px"
-                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
-                                                        draggable="false"
-                                                >
+                                                <img :src="reforged ? 'a' : 'b'" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -116,22 +88,23 @@
         <div class="tree">
             <div id="basic-example" class="chart Treant Treant-loaded"></div>
         </div>
-        <script src="js/shops/weaponMerchant.js" type="application/javascript"></script>
-        <script src="js/shops/weaponInventory.js" type="application/javascript"></script>
-        <script src="js/shops/heavyWeaponsMerchant.js" type="application/javascript"></script>
-        <script src="js/shops/magazin.js" type="application/javascript"></script>
-        <script src="js/shops/arsenal.js" type="application/javascript"></script>
-        <script src="js/shops/buildingOfElements.js" type="application/javascript"></script>
-        <script src="js/shops/windOfChange.js" type="application/javascript"></script>
-        <script src="js/shops/weaponHut.js" type="application/javascript"></script>
-        <script src="js/shops/hutOfTheCraftsman.js" type="application/javascript"></script>
-        <script src="js/shops/trollcombiner.js" type="application/javascript"></script>
-        <script src="js/shops/hutOfThePirate.js" type="application/javascript"></script>
-        <script src="js/shops/bobsGuns.js" type="application/javascript"></script>
-        <script src="js/shops/fishingHut.js" type="application/javascript"></script>
-        <script src="js/shops/equipmentMerchant.js" type="application/javascript"></script>
-        <script src="js/shops/equipmentCombiner.js" type="application/javascript"></script>
-        <script src="js/shops/weapontrader.js" type="application/javascript"></script>
+        <script src="constants.js" type="application/javascript"></script>
+        <script src="shops/weaponMerchant/weaponMerchant.js" type="application/javascript"></script>
+<!--        <script src="js/shops/weaponInventory.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/heavyWeaponsMerchant.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/magazin.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/arsenal.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/buildingOfElements.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/windOfChange.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/weaponHut.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/hutOfTheCraftsman.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/trollcombiner.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/hutOfThePirate.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/bobsGuns.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/fishingHut.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/equipmentMerchant.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/equipmentCombiner.js" type="application/javascript"></script>-->
+<!--        <script src="js/shops/weapontrader.js" type="application/javascript"></script>-->
         <script src="script.js" type="application/javascript"></script>
     </body>
 </html>

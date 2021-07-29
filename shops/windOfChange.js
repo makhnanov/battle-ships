@@ -1,5 +1,4 @@
 const windOfChange = [
-
     {
         title: 'Wind of Change',
         items: [

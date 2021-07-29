@@ -1,0 +1,29 @@
+                                                <img
+                                                        v-if="!reforged"
+                                                        v-on:click="select"
+                                                        class="content no-select"
+                                                        v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
+                                                        :src="'images/' +  itemData.img + '.'
+                                                        + (
+                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot')
+                                                        ? 'jpg'
+                                                        : 'png'
+                                                        )"
+                                                        alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
+                                                        draggable="false"
+                                                >
+                                                <img
+                                                        v-bind:class="{ active: isActive }"
+                                                        v-if="reforged"
+                                                        v-on:click="select"
+                                                        class="content no-select"
+                                                        :src="'images/reforged/R' + itemData.img + '.png'"
+                                                        alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
+                                                        draggable="false"
+                                                >
