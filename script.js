@@ -81,6 +81,11 @@ const app = new Vue({
                 ? this.fullPath(item.id, item.reforgedImg)
                 : this.fullPath(item.id, item.img);
         },
+        getDoubleImage: function (item, reforged) {
+            return reforged
+                ? this.fullPath(item.id, item.doubledReforgedImg)
+                : this.fullPath(item.id, item.doubledImg);
+        },
         fullPath: function (itemId, imageName) {
             const shopId = (itemId - itemId % 100) / 100;
             // return this.shops.$shopId.path ;

@@ -32,23 +32,29 @@
             <div class="d-flex">
                 <div class="left-block">
                     <div class="search-configuration">
-                            <div v-on:click="focusSearch" class="search-block">
-                                <div class="ny search-word">
-                                    Search:
-                                </div>
-                                <input id="search-input" v-model="search" placeholder="Type e.g. &#171;cannon&#187;"/>
-                                <div v-on:click="clearSearch" class="ny clear-word" v-bind:class="{ hidden: !search }">
-                                    Clear
-                                </div>
+                        <div v-on:click="focusSearch" class="search-block">
+                            <div class="ny search-word">
+                                Search:
                             </div>
-                            <div class="reforged-block">
-                                <label style="display: inherit;">
-                                    <input type="checkbox" class="reforged-checkbox" v-model="reforged" />
-                                    <div class="ny reforged-word">
-                                        Reforged Icons
-                                    </div>
-                                </label>
+                            <input id="search-input" v-model="search" placeholder="Type e.g. &#171;cannon&#187;"/>
+                            <div v-on:click="clearSearch" class="ny clear-word" v-bind:class="{ hidden: !search }">
+                                Clear
                             </div>
+                        </div>
+                        <div class="reforged-block">
+                            <label style="display: inherit;">
+                                <input type="checkbox" class="reforged-checkbox" v-model="reforged" />
+                                <div class="ny reforged-word">
+                                    Reforged Icons
+                                </div>
+                            </label>
+                            <label style="display: inherit;">
+                                <input type="checkbox" class="reforged-checkbox" v-model="showDoubled" />
+                                <div class="ny reforged-word">
+                                    Show Doubled Icons
+                                </div>
+                            </label>
+                        </div>
                     </div>
                     <div v-for="shop in shops">
                         <div class="b-shadowed shop-container">
@@ -62,9 +68,15 @@
                                                 <img
                                                         :id="'item' + item.id"
                                                         :src="getImage(item, reforged)"
-                                                        alt=""
                                                         class="item"
+                                                        alt=""
                                                 >
+                                                <div v-if="showDoubled" class="doubled-item-container">
+                                                    <img
+                                                            :src="getDoubleImage(item, reforged)"
+                                                            class="double-item"
+                                                    >
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
