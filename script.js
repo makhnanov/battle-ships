@@ -5,6 +5,7 @@ const app = new Vue({
             search: '',
             selectedItem: '',
             reforged: false,
+            showDoubled: false,
             shops: {
                 1: weaponMerchant,
             },
