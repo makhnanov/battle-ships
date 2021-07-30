@@ -49,16 +49,21 @@
                                 </label>
                             </div>
                     </div>
-                    <div v-for="(shop, shopNumber) in shops">
+                    <div v-for="shop in shops">
                         <div class="b-shadowed shop-container">
                             <p class="shop-title">{{ shop.title }}</p>
                             <div class="shop-images-container">
                                 <div v-for="row in _.chunk(shop.items, 4)"
                                      style="display: flex; justify-content: space-between;">
-                                    <div style="position: relative" v-for="(itemData, itemNumber) in row">
+                                    <div style="position: relative" v-for="(item, itemNumber) in row">
                                         <div class="for-big-image">
                                             <div class="img-container">
-                                                <img :src="reforged ? 'a' : 'b'" alt="">
+                                                <img
+                                                        :id="'item' + item.id"
+                                                        :src="getImage(item, reforged)"
+                                                        alt=""
+                                                        class="item"
+                                                >
                                             </div>
                                         </div>
                                     </div>

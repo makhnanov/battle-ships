@@ -515,8 +515,8 @@ body {
 .item {
     width: 60px;
     height: 60px;
-    background: gold;
-    animation: background 3s infinite;
+    /*background: gold;*/
+    /*animation: background 3s infinite;*/
 }
 .items-row {
     display: flex;

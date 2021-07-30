@@ -5,8 +5,10 @@ const app = new Vue({
             search: '',
             selectedItem: '',
             reforged: false,
-            shops: [
-                ...weaponMerchant,
+            shops: {
+                1: weaponMerchant,
+            },
+                // ...,
                 // ...weaponInventory,
                 // ...heavyWeaponsMerchant,
                 // ...magazin,
@@ -22,7 +24,6 @@ const app = new Vue({
                 // ...equipmentMerchant,
                 // ...equipmentCombiner,
                 // ...weapontrader
-            ]
         };
     },
     watch: {
@@ -74,6 +75,16 @@ const app = new Vue({
         }
     },
     methods: {
+        getImage: function (item, reforged) {
+            return reforged
+                ? this.fullPath(item.id, item.reforgedImg)
+                : this.fullPath(item.id, item.img);
+        },
+        fullPath: function (itemId, imageName) {
+            const shopId = (itemId - itemId % 100) / 100;
+            // return this.shops.$shopId.path ;
+            return 'shops/' + this.shops[shopId].path + '/' + (imageName.includes('.', -4) ? imageName : imageName + '.png');
+        },
         select: function (event) {
             let selectedImg = event.target;
             this.selectedItem = selectedImg.alt;
