@@ -13,16 +13,19 @@ const windOfChange = [
                 img: 'KarlMarx',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Subcomandante Marcos',
                 img: 'Marcos',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'EZLN',
                 img: 'EZLN',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Sniper',
                 img: 'Wisp',
@@ -33,31 +36,37 @@ const windOfChange = [
                 img: 'FlamingBow',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Guardian Bow',
                 img: 'BowAndArrow',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Multi-Bow',
                 img: 'TripleShot',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Chainsaw',
                 img: 'Chainsaw',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Sandblaster',
                 img: 'Sand',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Dualistic Axe',
                 img: 'ScytheBackstab',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: '',
                 img: '12slot',

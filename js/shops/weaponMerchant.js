@@ -29,6 +29,7 @@ const weaponMerchant = [
                 lvl: 1,
                 doubled: '',
                 isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Multi-Rocket Cannon',
                 img: 'ClusterRockets',

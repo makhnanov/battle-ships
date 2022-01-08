@@ -7,6 +7,7 @@ const weaponHut = [
                 img: 'Ability_Hunter_RunningShot',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Molotov-Arrow Cannon',
                 img: 'MarkOfFire',
@@ -22,31 +23,37 @@ const weaponHut = [
                 img: 'VenomCannon',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Minigun',
                 img: 'Sentrygun',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Gattling',
                 img: 'Gatling',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Glaiveboulder',
                 img: 'Star',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Ice Thrower',
                 img: 'IceDagger',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Frag-Laser',
                 img: 'PowerAttack',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Soul Stealer',
                 img: 'SkeletalOrc',
@@ -57,6 +64,7 @@ const weaponHut = [
                 img: 'GunFire1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: '',
                 img: '12slot',

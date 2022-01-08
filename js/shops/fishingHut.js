@@ -12,6 +12,7 @@ const fishingHut= [
                 img: 'Fishing1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Harpoon',
                 img: 'EnvenomedSpear',
@@ -22,11 +23,13 @@ const fishingHut= [
                 img: 'PASElunesBlessing',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Burning Fish Thrower',
                 img: 'FlameUP',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Fouled Burning Fish Cannon',
                 img: 'MurgulBloodGill',
@@ -42,6 +45,7 @@ const fishingHut= [
                 img: 'FishingShip',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Whale Hunter',
                 img: 'OrcWarlockRed',

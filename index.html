@@ -23,6 +23,9 @@
                     <h1 class="battleships-word ny">
                         Battleships Crossfire
                     </h1>
+                    <h2 class="battleships-word ny" style="font-size: 14pt">
+                        Official Site: <a href="http://wc3bs.com/" target="_blank">http://wc3bs.com/</a>
+                    </h2>
                 </div>
                 <div>
                     <img src="./images/MegaLogoShip.svg" width="100px" height="100px" alt="">
@@ -39,6 +42,9 @@
                                 <div v-on:click="clearSearch" class="ny clear-word" v-bind:class="{ hidden: !search }">
                                     Clear
                                 </div>
+                            </div>
+                            <div class="reforged-block d-flex" style="text-align: center; justify-content: center">
+                                <h3 style="align-self: center;font-size: 17pt;">{{ selectedItem !== '#' ? selectedItem : '' }}</h3>
                             </div>
                             <div class="reforged-block">
                                 <label style="display: inherit;">
@@ -65,7 +71,7 @@
                                                         v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
                                                         :src="'images/' +  itemData.img + '.'
                                                         + (
-                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot')
+                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot' || itemData.onlyOld)
                                                         ? 'jpg'
                                                         : 'png'
                                                         )"
@@ -76,11 +82,13 @@
                                                         draggable="false"
                                                 >
                                                 <img
-                                                        v-bind:class="{ active: isActive }"
+                                                        v-bind:class="{ active: isActive, 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
                                                         v-if="reforged"
                                                         v-on:click="select"
                                                         class="content no-select"
-                                                        :src="'images/reforged/R' + itemData.img + '.png'"
+                                                        :src="(itemData.onlyOld || itemData.img === 'emptyslot' || itemData.img === '12slot')
+                                                        ? (itemData.onlyOld ? 'images/' + itemData.img + '.jpg' : itemData.img === 'emptyslot' ? 'images/' + itemData.img + '.jpg' : 'images/' + itemData.img + '.png')
+                                                        : ('images/reforged/R' + itemData.img + '.png')"
                                                         alt=""
                                                         width="60px"
                                                         height="60px"
@@ -95,27 +103,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="b-shadowed current-selected-item">
-                    <div v-if="selectedItem" id="selected-item">
-                        You can find {{ selectedItem }} here:
-                        <img id="map" src="images/map/bsmap.png">
-                    </div>
-                    <div v-if="!selectedItem" id="selected-hint">
-                        <p class="hint-title">Find Any Item:</p>
-                        <p class="hint-button"><span class="border-1">Ctrl</span> + <span class="border-1">F</span></p>
-                        <p class="hint-title">Clear Search / Selection:</p>
-                        <p class="hint-button"><span class="border-1">ESC</span></p>
-                        <p class="hint-title">Get More Info:</p>
-                        <p class="hint-button"><span class="border-1">Just Left Click</span></p>
-                        <p class="hint-title">Improve Memory:</p>
-                        <p style="margin-top: 28px;"><span v-on:click="comingSoon" class="game-button">PALY GAME</span></p>
-                    </div>
-                </div>
+<!--                <div class="b-shadowed current-selected-item">-->
+<!--                    <div v-if="selectedItem" id="selected-item">-->
+<!--                        You can find {{ selectedItem }} here:-->
+<!--                        <img id="map" src="images/map/bsmap.png">-->
+<!--                    </div>-->
+<!--                    <div v-if="!selectedItem" id="selected-hint">-->
+<!--                        <p class="hint-title">Find Any Item:</p>-->
+<!--                        <p class="hint-button"><span class="border-1">Ctrl</span> + <span class="border-1">F</span></p>-->
+<!--                        <p class="hint-title">Clear Search / Selection:</p>-->
+<!--                        <p class="hint-button"><span class="border-1">ESC</span></p>-->
+<!--                        <p class="hint-title">Get More Info:</p>-->
+<!--                        <p class="hint-button"><span class="border-1">Just Left Click</span></p>-->
+<!--                        <p class="hint-title">Improve Memory:</p>-->
+<!--                        <p style="margin-top: 28px;"><span v-on:click="comingSoon" class="game-button">PALY GAME</span></p>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </div>
-        <div class="tree">
-            <div id="basic-example" class="chart Treant Treant-loaded"></div>
-        </div>
+<!--        <div class="tree">-->
+<!--            <div id="basic-example" class="chart Treant Treant-loaded"></div>-->
+<!--        </div>-->
         <script src="js/shops/weaponMerchant.js" type="application/javascript"></script>
         <script src="js/shops/weaponInventory.js" type="application/javascript"></script>
         <script src="js/shops/heavyWeaponsMerchant.js" type="application/javascript"></script>

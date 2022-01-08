@@ -12,6 +12,7 @@ const buildingOfElements = [
                 img: 'INV_Weapon_Bow_05',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Long Range Own Construction Weapon',
                 img: 'ScatterRockets',

@@ -17,6 +17,7 @@ const equipmentCombiner = [
                 img: 'Transmute',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Upgraded Diamond Hull',
                 img: 'WindWalkOn',

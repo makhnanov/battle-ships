@@ -12,11 +12,13 @@ const trollcombiner = [
                 img: 'INV_Hammer_17',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Admirals Torpedo',
                 img: 'PhotonTorpedo',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Birds of Terror',
                 img: 'Murloc',
@@ -27,36 +29,43 @@ const trollcombiner = [
                 img: 'Meteor3',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Rocket Battery',
                 img: 'DeathMissiles',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Marxsman Crew',
                 img: 'WindsBow',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Crossbowmen',
                 img: 'INV_Weapon_Crossbow_03',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Yellow-Green Laser',
                 img: 'Anomaly',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Red-Blue Laser',
                 img: 'ImprovedFeedBack',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Rainbow Laser',
                 img: 'Rainbow_Laser',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: '',
                 img: '12slot',

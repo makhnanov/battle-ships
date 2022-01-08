@@ -7,11 +7,13 @@ const weapontrader = [
                 img: 's_Firebomb1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Bombarding Sailors',
                 img: 'DemonicArtifact',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Explosive Barrel Catapult',
                 img: 'OtherBarrel',
@@ -22,16 +24,19 @@ const weapontrader = [
                 img: 'bonecrusherGS',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Medium Rocket',
                 img: 'RocketFlare1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Heavy Rocket',
                 img: 'DrunkenRocket',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Microwave Roentgen',
                 img: 'OrbOfVenom',
@@ -42,16 +47,19 @@ const weapontrader = [
                 img: 'Nuke1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Basic Shotgun Crew',
                 img: 'Shotgun1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Superperforator',
                 img: 'Superperforator1',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: '',
                 img: 'emptyslot',

@@ -22,26 +22,31 @@ const equipmentMerchant = [
                 img: 'EngineeringUpgrade',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Light Sail',
                 img: 'LightSail',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Great Sail',
                 img: 'BronzeSail',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Goblin Sail',
                 img: 'GoblinSail',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Smoke Machine',
                 img: 'HealingSpray',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Stone Hull',
                 img: 'StoneArchitecture',

@@ -7,25 +7,29 @@ const weaponInventory = [
                 img: 'YellowLightning',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Green Laser',
                 img: 'Green_Laser',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Blue Laser',
                 img: 'Spell_Nature_Lightning',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Red Laser',
                 img: 'Pyramid',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Roentgen Radiator',
                 img: 'ReplenishHealth',
@@ -36,7 +40,8 @@ const weaponInventory = [
                 img: 'PlasmaLaserGun',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
             },{
                 name: 'Flamethrower',
                 img: 'Fire',
@@ -57,7 +62,8 @@ const weaponInventory = [
                 img: 'Lightning',
                 lvl: 1,
                 doubled: '',
-                isJpg: true
+                isJpg: true,
+                onlyOld: true,
 
             },{
                 name: 'Capitalistic Gun',

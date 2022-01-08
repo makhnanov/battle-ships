@@ -7,6 +7,7 @@ const hutOfTheCraftsman = [
                 img: 'Anarcho',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Found the Sailors Union',
                 img: 'Arthas',
@@ -17,21 +18,25 @@ const hutOfTheCraftsman = [
                 img: '_CNT_FAI',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Communistic Crew',
                 img: 'GhostMage',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Spirit of the Revolution',
                 img: 'RedFlag',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Guevars Guerillero Gun',
                 img: 'Che',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Feuerbachs Ballista',
                 img: 'GlaiveThrower',
@@ -57,6 +62,7 @@ const hutOfTheCraftsman = [
                 img: 'ArcaneBlast',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: '',
                 img: '12slot',

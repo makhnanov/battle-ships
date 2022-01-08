@@ -17,26 +17,31 @@ const bobsGuns = [
                 img: 'Egg',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Rocket Dodo',
                 img: 'Dodo',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Sneaking Death',
                 img: 'ANA_WaterBubble',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Arcane Explosion',
                 img: 'ArcaneBurst',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Subwave',
                 img: 'ANAOrbOfLightning',
                 lvl: 1,
                 doubled: '',
+                onlyOld: true,
             },{
                 name: 'Higgs Torpedo',
                 img: 'DeathCoil',

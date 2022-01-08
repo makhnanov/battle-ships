@@ -102,6 +102,7 @@ const app = new Vue({
 
 
             if (containerClassList.contains('green-bordered')) {
+                this.selectedItem = '';
                 event.target.parentElement.classList.remove('green-bordered');
             } else if (containerClassList.contains('yellow-bordered')) {
                 event.target.parentElement.classList.remove('yellow-bordered')
@@ -123,7 +124,7 @@ const app = new Vue({
         comingSoon: function () {
             alert('Coming soon');
         },
-        removeSelectedIdtem: function () {
+        removeSelectedItem: function () {
             this.selectedItem = '';
         }
     },
