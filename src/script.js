@@ -161,80 +161,80 @@ const app = new Vue({
             }
         });
 
-        var chart_config = {
-            chart: {
-                container: "#basic-example",
-                connectors: {
-                    type: 'step'
-                },
-                node: {
-                    HTMLclass: 'nodeExample1'
-                }
-            },
-            nodeStructure: {
-                text: {
-                    name: "Admirals Torpedo",
-                },
-                image: "images/tree/6.png",
-                children: [
-                    {
-                        stackChildren: true,
-                        text:{
-                            name: "Pirates Cannon",
-                        },
-                        image: "images/tree/5.png",
-                        children: [
-                            {
-                                text:{
-                                    name: "Double Basic Cannon",
-                                },
-                                image: "images/tree/44.png",
-                                children: [
-                                    {
-                                        text:{
-                                            name: "Basic Cannon",
-                                        },
-                                        image: "images/tree/4.png",
-                                    }
-                                ]
-                            },
-                            {
-                                text:{
-                                    name: "Double Cruiser Cannon",
-                                },
-                                image: "images/tree/33.png",
-                                children: [
-                                    {
-                                        text:{
-                                            name: "Cruiser Cannon",
-                                        },
-                                        image: "images/tree/3.png",
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        text:{
-                            name: "Doubled Pirates Torpedo",
-                        },
-                        image: "images/tree/1.png",
-                        children: [
-                            {
-                                text:{
-                                    name: "Pirates torpedo",
-                                },
-                                link: {
-                                    href: "http://www.google.com"
-                                },
-                                image: "images/tree/2.png"
-                            }
-                        ]
-                    }
-                ]
-            }
-        };
-
-        new Treant( chart_config );
+        // var chart_config = {
+        //     chart: {
+        //         container: "#basic-example",
+        //         connectors: {
+        //             type: 'step'
+        //         },
+        //         node: {
+        //             HTMLclass: 'nodeExample1'
+        //         }
+        //     },
+        //     nodeStructure: {
+        //         text: {
+        //             name: "Admirals Torpedo",
+        //         },
+        //         image: "images/tree/6.png",
+        //         children: [
+        //             {
+        //                 stackChildren: true,
+        //                 text:{
+        //                     name: "Pirates Cannon",
+        //                 },
+        //                 image: "images/tree/5.png",
+        //                 children: [
+        //                     {
+        //                         text:{
+        //                             name: "Double Basic Cannon",
+        //                         },
+        //                         image: "images/tree/44.png",
+        //                         children: [
+        //                             {
+        //                                 text:{
+        //                                     name: "Basic Cannon",
+        //                                 },
+        //                                 image: "images/tree/4.png",
+        //                             }
+        //                         ]
+        //                     },
+        //                     {
+        //                         text:{
+        //                             name: "Double Cruiser Cannon",
+        //                         },
+        //                         image: "images/tree/33.png",
+        //                         children: [
+        //                             {
+        //                                 text:{
+        //                                     name: "Cruiser Cannon",
+        //                                 },
+        //                                 image: "images/tree/3.png",
+        //                             }
+        //                         ]
+        //                     }
+        //                 ]
+        //             },
+        //             {
+        //                 text:{
+        //                     name: "Doubled Pirates Torpedo",
+        //                 },
+        //                 image: "images/tree/1.png",
+        //                 children: [
+        //                     {
+        //                         text:{
+        //                             name: "Pirates torpedo",
+        //                         },
+        //                         link: {
+        //                             href: "http://www.google.com"
+        //                         },
+        //                         image: "images/tree/2.png"
+        //                     }
+        //                 ]
+        //             }
+        //         ]
+        //     }
+        // };
+        //
+        // new Treant( chart_config );
     }
 })

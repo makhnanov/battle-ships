@@ -62,21 +62,37 @@
                             <div class="shop-images-container">
                                 <div v-for="row in _.chunk(shop.items, 4)"
                                      style="display: flex; justify-content: space-between;">
-                                    <div style="position: relative" v-for="(item, itemNumber) in row">
+                                    <div style="position: relative" v-for="(itemData, itemNumber) in row">
                                         <div class="for-big-image">
                                             <div class="img-container">
                                                 <img
-                                                        :id="'item' + item.id"
-                                                        :src="getImage(item, reforged)"
-                                                        class="item"
+                                                        v-if="!reforged"
+                                                        v-on:click="select"
+                                                        class="content no-select"
+                                                        v-bind:class="{ 'always-grayed': itemData.img === 'emptyslot' || itemData.img === '12slot' }"
+                                                        :src="'images/' +  itemData.img + '.'
+                                                        + (
+                                                        (itemData.isJpg && itemData.img !== '12slot' || itemData.img === 'emptyslot')
+                                                        ? 'jpg'
+                                                        : 'png'
+                                                        )"
                                                         alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
+                                                        draggable="false"
                                                 >
-                                                <div v-if="showDoubled" class="doubled-item-container">
-                                                    <img
-                                                            :src="getDoubleImage(item, reforged)"
-                                                            class="double-item"
-                                                    >
-                                                </div>
+                                                <img
+                                                        v-if="reforged"
+                                                        v-on:click="select"
+                                                        class="content no-select"
+                                                        :src="'images/reforged/R' + itemData.img + '.png'"
+                                                        alt=""
+                                                        width="60px"
+                                                        height="60px"
+                                                        :alt="itemData.img === 'emptyslot' || itemData.img === '12slot' ? '#' : itemData.name"
+                                                        draggable="false"
+                                                >
                                             </div>
                                         </div>
                                     </div>
@@ -103,9 +119,9 @@
                 </div>
             </div>
         </div>
-        <div class="tree">
-            <div id="basic-example" class="chart Treant Treant-loaded"></div>
-        </div>
+<!--        <div class="tree">-->
+<!--            <div id="basic-example" class="chart Treant Treant-loaded"></div>-->
+<!--        </div>-->
         <script src="constants.js" type="application/javascript"></script>
         <script src="shops/weaponMerchant/weaponMerchant.js" type="application/javascript"></script>
 <!--        <script src="js/shops/weaponInventory.js" type="application/javascript"></script>-->

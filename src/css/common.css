@@ -62,7 +62,7 @@ body { /*transform: scale(0.7);*/
 }
 @font-face {
     font-family: NewYorkTimes;
-    src: url(NewYorkTimes.ttf);
+    src: url(file:///var/www/battle-ships/src/NewYorkTimes.ttf);
 }
 .reforged-word {
     align-self: center;
